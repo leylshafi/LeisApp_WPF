@@ -1,0 +1,58 @@
+﻿<Window x:Class="Source.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Source.Views"
+        mc:Ignorable="d"
+        MinHeight="450" MinWidth="800"
+        Title="MainView" Height="450" Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas Grid.Column="0">
+            <Image Width="30" Source="/StaticFiles/img/logo.png" Canvas.Right="120" Margin="5" Stretch="UniformToFill" />
+
+            <StackPanel Canvas.Right="15" Canvas.Top="50">
+                <Border Name="brd" CornerRadius="25" >
+                    <Border.Triggers>
+                        
+                    <EventTrigger RoutedEvent="Border.MouseEnter">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#e7e7e8" Duration="0:0:0.3" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                    </Border.Triggers>
+                    <DockPanel MouseLeftButtonDown="DockPanel_MouseLeftButtonDown" Margin="3">
+                        <Image Width="25" Source="/StaticFiles/img/home.png" Margin="5" Stretch="UniformToFill" />
+                        <TextBlock Text="Home" Margin="7" FontSize="15" FontWeight="Bold"/>
+                    </DockPanel>
+                </Border>
+                <DockPanel Margin="3">
+                    <Image Width="25" Source="/StaticFiles/img/explore.png" Margin="5" Stretch="UniformToFill" />
+                    <TextBlock Text="Explore" Margin="7" FontSize="15" FontWeight="Bold"/>
+                </DockPanel>
+                <DockPanel Margin="3">
+                    <Image Width="25" Source="/StaticFiles/img/notifiation.png" Margin="5" Stretch="UniformToFill" />
+                    <TextBlock Text="Notifications" Margin="7" FontSize="15" FontWeight="Bold"/>
+                </DockPanel>
+                <DockPanel Margin="3">
+                    <Image Width="25" Source="/StaticFiles/img/user.png" Margin="5" Stretch="UniformToFill" />
+                    <TextBlock Text="Profile" Margin="7" FontSize="15" FontWeight="Bold"/>
+                </DockPanel>
+
+            </StackPanel>
+        </Canvas>
+        <Button Grid.Column="1" Background="red" Grid.ColumnSpan="2" />
+        <Button Grid.Column="3" Background="Green" />
+    </Grid>
+</Window>

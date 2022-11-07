@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="StaticFiles\img\explore.png" />
+    <None Remove="StaticFiles\img\home.png" />
+    <None Remove="StaticFiles\img\logo.png" />
+    <None Remove="StaticFiles\img\notifiation.png" />
+    <None Remove="StaticFiles\img\user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="StaticFiles\img\explore.png" />
+    <Resource Include="StaticFiles\img\home.png" />
+    <Resource Include="StaticFiles\img\logo.png" />
+    <Resource Include="StaticFiles\img\notifiation.png" />
+    <Resource Include="StaticFiles\img\user.png" />
+  </ItemGroup>
+
+</Project>
