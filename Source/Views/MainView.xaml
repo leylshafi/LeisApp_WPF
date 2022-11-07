@@ -31,7 +31,7 @@
                         <TextBlock Text="Home" Margin="7" FontSize="15" FontWeight="Bold"/>
                     </DockPanel>
                 </Border>
-
+                
                 <Border CornerRadius="25" >
                     <DockPanel Margin="3">
                         <Image Width="25" Source="/StaticFiles/img/explore.png" Margin="5" Stretch="UniformToFill" />
