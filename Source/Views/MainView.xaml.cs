@@ -23,10 +23,5 @@ namespace Source.Views
         {
             InitializeComponent();
         }
-
-        private void DockPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Success");
-        }
     }
 }
