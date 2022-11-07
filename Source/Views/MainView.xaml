@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Source.Views"
+        xmlns:local="clr-namespace:Source.Views" xmlns:usercontrols="clr-namespace:Source.UserControls"
         mc:Ignorable="d"
         MinHeight="450" MinWidth="800"
         Title="MainView" Height="450" Width="800">
@@ -11,7 +11,6 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="11*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
@@ -52,7 +51,7 @@
 
             </StackPanel>
         </Canvas>
-        <Button Grid.Column="1" Background="red" Grid.ColumnSpan="2" />
+        <usercontrols:TweetControl Grid.Column="1" ></usercontrols:TweetControl>
         <Button Grid.Column="3" Background="Green" />
     </Grid>
 </Window>
