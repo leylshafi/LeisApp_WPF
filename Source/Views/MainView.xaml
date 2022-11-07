@@ -7,52 +7,60 @@
         mc:Ignorable="d"
         MinHeight="450" MinWidth="800"
         Title="MainView" Height="450" Width="800">
-
+    <Window.Resources>
+        <Style TargetType="Border">
+            <Style.Triggers>
+                <Trigger Property="Border.IsMouseOver" Value="True">
+                    <Setter Property="Border.Background" Value="#e7e7e8" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <Canvas Grid.Column="0">
-            <Image Width="30" Source="/StaticFiles/img/logo.png" Canvas.Right="120" Margin="5" Stretch="UniformToFill" />
-
-            <StackPanel Canvas.Right="15" Canvas.Top="50">
-                <Border Name="brd" CornerRadius="25" >
-                    <Border.Triggers>
-                        
-                    <EventTrigger RoutedEvent="Border.MouseEnter">
-                        <EventTrigger.Actions>
-                            <BeginStoryboard>
-                                <Storyboard>
-                                        <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#e7e7e8" Duration="0:0:0.3" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger.Actions>
-                    </EventTrigger>
-                    </Border.Triggers>
-                    <DockPanel MouseLeftButtonDown="DockPanel_MouseLeftButtonDown" Margin="3">
+            <StackPanel Canvas.Right="15">
+                <Image Margin="10 15 0 15" HorizontalAlignment="Left" Width="30" Source="/StaticFiles/img/logo.png" Stretch="UniformToFill" />
+                <Border CornerRadius="25" >
+                    <DockPanel Margin="3">
                         <Image Width="25" Source="/StaticFiles/img/home.png" Margin="5" Stretch="UniformToFill" />
                         <TextBlock Text="Home" Margin="7" FontSize="15" FontWeight="Bold"/>
                     </DockPanel>
                 </Border>
-                <DockPanel Margin="3">
-                    <Image Width="25" Source="/StaticFiles/img/explore.png" Margin="5" Stretch="UniformToFill" />
-                    <TextBlock Text="Explore" Margin="7" FontSize="15" FontWeight="Bold"/>
-                </DockPanel>
-                <DockPanel Margin="3">
-                    <Image Width="25" Source="/StaticFiles/img/notifiation.png" Margin="5" Stretch="UniformToFill" />
-                    <TextBlock Text="Notifications" Margin="7" FontSize="15" FontWeight="Bold"/>
-                </DockPanel>
-                <DockPanel Margin="3">
-                    <Image Width="25" Source="/StaticFiles/img/user.png" Margin="5" Stretch="UniformToFill" />
-                    <TextBlock Text="Profile" Margin="7" FontSize="15" FontWeight="Bold"/>
-                </DockPanel>
 
+                <Border CornerRadius="25" >
+                    <DockPanel Margin="3">
+                        <Image Width="25" Source="/StaticFiles/img/explore.png" Margin="5" Stretch="UniformToFill" />
+                        <TextBlock Text="Explore" Margin="7" FontSize="15" FontWeight="Bold"/>
+                    </DockPanel>
+                </Border>
+                <Border CornerRadius="25" >
+                    <DockPanel Margin="3">
+                        <Image Width="25" Source="/StaticFiles/img/notifiation.png" Margin="5" Stretch="UniformToFill" />
+                        <TextBlock Text="Notifications" Margin="7" FontSize="15" FontWeight="Bold"/>
+                    </DockPanel>
+                </Border>
+                <Border CornerRadius="25" >
+                    <DockPanel Margin="3">
+                        <Image Width="25" Source="/StaticFiles/img/user.png" Margin="5" Stretch="UniformToFill" />
+                        <TextBlock Text="Profile" Margin="7" FontSize="15" FontWeight="Bold"/>
+                    </DockPanel>
+                </Border>
+                <Border Margin="8 25 0 0" Height="35" Background="#1d9bf0" CornerRadius="15">
+                    <TextBlock Text="Tweet" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="15" FontWeight="Bold" />
+                </Border>
+                <Border CornerRadius="15">
+                    <StackPanel Orientation="Horizontal">
+                        <Image />
+                    </StackPanel>
+                </Border>
             </StackPanel>
         </Canvas>
-        <Button Grid.Column="1" Background="red" Grid.ColumnSpan="2" />
-        <Button Grid.Column="3" Background="Green" />
+        <Button Grid.Column="1" Background="red" />
+        <Button Grid.Column="2 " Background="Green" />
     </Grid>
 </Window>
