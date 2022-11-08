@@ -8,7 +8,7 @@
         MinHeight="450" MinWidth="1000"
         Title="MainView" Height="450" Width="1000">
     <Window.Resources>
-        <Style TargetType="Border">
+        <Style TargetType="Border" x:Key="HoverableGray">
             <Style.Triggers>
                 <Trigger Property="Border.IsMouseOver" Value="True">
                     <Setter Property="Border.Background" Value="#e7e7e8" />
@@ -25,26 +25,26 @@
         <Canvas Grid.Column="0">
             <StackPanel Canvas.Right="15">
                 <Image Margin="10 15 0 15" HorizontalAlignment="Left" Width="30" Source="/StaticFiles/img/logo.png" Stretch="UniformToFill" />
-                <Border CornerRadius="25" >
+                <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
                     <DockPanel Margin="3">
                         <Image Width="25" Source="/StaticFiles/img/home.png" Margin="5" Stretch="UniformToFill" />
                         <TextBlock Text="Home" Margin="7" FontSize="15" FontWeight="Bold"/>
                     </DockPanel>
                 </Border>
 
-                <Border CornerRadius="25" >
+                <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
                     <DockPanel Margin="3">
                         <Image Width="25" Source="/StaticFiles/img/explore.png" Margin="5" Stretch="UniformToFill" />
                         <TextBlock Text="Explore" Margin="7" FontSize="15" FontWeight="Bold"/>
                     </DockPanel>
                 </Border>
-                <Border CornerRadius="25" >
+                <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
                     <DockPanel Margin="3">
                         <Image Width="25" Source="/StaticFiles/img/notifiation.png" Margin="5" Stretch="UniformToFill" />
                         <TextBlock Text="Notifications" Margin="7" FontSize="15" FontWeight="Bold"/>
                     </DockPanel>
                 </Border>
-                <Border CornerRadius="25" >
+                <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
                     <DockPanel Margin="3">
                         <Image Width="25" Source="/StaticFiles/img/user.png" Margin="5" Stretch="UniformToFill" />
                         <TextBlock Text="Profile" Margin="7" FontSize="15" FontWeight="Bold"/>
@@ -53,14 +53,9 @@
                 <Border Margin="8 25 0 0" Height="35" Background="#1d9bf0" CornerRadius="15">
                     <TextBlock Text="Tweet" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="15" FontWeight="Bold" />
                 </Border>
-                <Border CornerRadius="15">
-                    <StackPanel Orientation="Horizontal">
-                        <Image />
-                    </StackPanel>
-                </Border>
             </StackPanel>
 
-            <Border Canvas.Right="25" Canvas.Bottom="5">
+            <Border Style="{StaticResource HoverableGray}" Width="150" CornerRadius="15" Canvas.Right="15" Canvas.Bottom="5">
                 <StackPanel Orientation="Horizontal">
                     <Image Width="45" Source="\StaticFiles\img\fakeProfile.png" />
                     <StackPanel>
