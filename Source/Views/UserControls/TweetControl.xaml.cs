@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Source.UserControls
+namespace Source.Views.UserControls
 {
     /// <summary>
     /// Interaction logic for TweetControl.xaml

@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="Source.Views.UserControls.TweetControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Source.Views.UserControls"
+             mc:Ignorable="d" HorizontalAlignment="Stretch" Height="150">
+
+    <Canvas>
+        <StackPanel Orientation="Horizontal" Canvas.Left="20" Canvas.Top="20">
+            <Ellipse Height="90" Width="90">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/StaticFiles/img/fakeProfile.png" Stretch="UniformToFill" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" Text="FullName" Margin="5" />
+                <TextBlock Text="@username" Margin="5"/>
+                <TextBlock Text="Date" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+        <Image Canvas.Right="15" Canvas.Top="22" Height="25" Source="/StaticFiles/img/more.png" Stretch="UniformToFill" />
+        <TextBlock Text="ExampleTweetContent" Canvas.Left="115" Canvas.Top="50" />
+        <StackPanel Canvas.Bottom="0" Canvas.Left="110" Orientation="Horizontal">
+            <Image Source="/StaticFiles/img/comments.png" Margin="0 5 25 5" />
+            <Image Source="/StaticFiles/img/retweet.png" Margin="0 5 25 5" />
+            <Image Source="/StaticFiles/img/heart.png" Margin="0 5 25 5" />
+            <Image Source="/StaticFiles/img/share.png" Margin="0 5 25 5" />
+        </StackPanel>
+    </Canvas>
+</UserControl>
