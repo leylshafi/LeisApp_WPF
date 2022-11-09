@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Source.Views.UserControls.HomeViewControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:usercontrols="clr-namespace:Source.Views.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <Canvas Margin="0 0 0 30" DockPanel.Dock="Top">
+            <TextBlock FontWeight="Bold" FontSize="15" Margin="12 10" Text="Home" />
+        </Canvas>
+        <ScrollViewer DockPanel.Dock="Bottom" >
+            <StackPanel>
+                <Border BorderBrush="LightSlateGray" BorderThickness="1" Margin="10">
+                    <Grid Margin="5">
+                        <usercontrols:AddTweetControl />
+                    </Grid>
+                </Border>
+                <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="50" Margin="10">
+                    <Grid Margin="10">
+                        <usercontrols:TweetControl />
+                    </Grid>
+                </Border>
+                <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="50" Margin="10">
+                    <Grid Margin="10">
+                        <usercontrols:TweetControl />
+                    </Grid>
+                </Border>
+                <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="50" Margin="10">
+                    <Grid Margin="10">
+                        <usercontrols:TweetControl />
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>
