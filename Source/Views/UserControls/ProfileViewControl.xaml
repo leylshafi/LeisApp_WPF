@@ -5,8 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Source.Views.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
     <Grid>
-        <TextBlock Text="Success" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="250" />
+            <RowDefinition Height="40" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="FullName" FontSize="18" FontWeight="Bold" />
+            <TextBlock Text="0 tweet" FontSize="12" Foreground="LightSlateGray" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Image Source="/StaticFiles/img/600x200.jpg" Stretch="Fill" Height="160" />
+            <Canvas>
+                <Ellipse StrokeThickness=".3" Stroke="Black"  HorizontalAlignment="Left" Margin="5 -65 0 0" Height="90" Width="90">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/StaticFiles/img/fakeProfile.png" Stretch="UniformToFill" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Button Content="edit profile" Height="20" Width="100" HorizontalAlignment="Right" Canvas.Right="10" Canvas.Top="10" />
+                <TextBlock Text="FullName" FontSize="18" Canvas.Top="30" Canvas.Left="15" />
+                <TextBlock Text="@username" FontSize="12" Canvas.Top="52" Canvas.Left="15" Foreground="LightSlateGray" />
+            </Canvas>
+        </StackPanel>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Tweets" />
+            <Button Grid.Column="1" Content="Tweet and Replies" />
+            <Button Grid.Column="2" Content="Media" />
+            <Button Grid.Column="3" Content="Likes" />
+        </Grid>
     </Grid>
 </UserControl>

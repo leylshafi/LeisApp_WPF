@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="StaticFiles\img\600x200.jpg" />
     <None Remove="StaticFiles\img\comments.png" />
     <None Remove="StaticFiles\img\explore.png" />
     <None Remove="StaticFiles\img\fakeProfile.png" />
@@ -27,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="StaticFiles\img\600x200.jpg" />
     <Resource Include="StaticFiles\img\comments.png" />
     <Resource Include="StaticFiles\img\explore.png" />
     <Resource Include="StaticFiles\img\fakeProfile.png" />
