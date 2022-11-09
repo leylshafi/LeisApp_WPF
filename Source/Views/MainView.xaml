@@ -15,6 +15,13 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="ScrollViewer">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="ScrollViewer.Visibility" Value="Hidden" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -22,6 +29,8 @@
             <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
+        <Border BorderThickness="0 0 1 0" BorderBrush="LightCyan">
+            
         <Canvas Grid.Column="0">
             <StackPanel Canvas.Right="15">
                 <Image Margin="10 15 0 15" HorizontalAlignment="Left" Width="30" Source="/StaticFiles/img/logo.png" Stretch="UniformToFill" />
@@ -66,18 +75,30 @@
                 </StackPanel>
             </Border>
         </Canvas>
+        </Border>
+
         <DockPanel Grid.Column="1">
             <Canvas Margin="0 0 0 30" DockPanel.Dock="Top">
                 <TextBlock FontWeight="Bold" FontSize="15" Margin="12 10" Text="Home" />
             </Canvas>
-            <ScrollViewer DockPanel.Dock="Top" >
+            <ScrollViewer DockPanel.Dock="Bottom" >
                 <StackPanel>
-                    <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="50">
+                    <Border BorderBrush="LightSlateGray" BorderThickness="1" Margin="10">
+                        <Grid Margin="5">
+                            <usercontrols:AddTweetControl />
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="50" Margin="10">
                         <Grid Margin="10">
                             <usercontrols:TweetControl />
                         </Grid>
                     </Border>
-                    <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="50">
+                    <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="50" Margin="10">
+                        <Grid Margin="10">
+                            <usercontrols:TweetControl />
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="50" Margin="10">
                         <Grid Margin="10">
                             <usercontrols:TweetControl />
                         </Grid>
@@ -85,10 +106,12 @@
                 </StackPanel>
             </ScrollViewer>
         </DockPanel>
-        <Canvas Grid.Column="2">
-            <Border BorderThickness="5" Height="40" Width="200" BorderBrush="AliceBlue" Background="LightGray" CornerRadius="18" >
-                <TextBox Margin="5" Text="Search Twitter" BorderThickness="0" Background="Transparent" />
-            </Border>
-        </Canvas>
+        <Border BorderThickness="1 0 0 0" BorderBrush="LightCyan">
+            <Canvas Grid.Column="2">
+                <Border BorderThickness="5" Height="40" Width="200" BorderBrush="AliceBlue" Background="LightGray" CornerRadius="18" >
+                    <TextBox Margin="5" Text="Search Twitter" BorderThickness="0" Background="Transparent" />
+                </Border>
+            </Canvas>
+        </Border>
     </Grid>
 </Window>

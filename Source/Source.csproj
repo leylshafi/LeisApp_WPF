@@ -13,6 +13,7 @@
     <None Remove="StaticFiles\img\fakeProfile.png" />
     <None Remove="StaticFiles\img\heart.png" />
     <None Remove="StaticFiles\img\home.png" />
+    <None Remove="StaticFiles\img\image.png" />
     <None Remove="StaticFiles\img\logo.png" />
     <None Remove="StaticFiles\img\more.png" />
     <None Remove="StaticFiles\img\notifiation.png" />
@@ -32,6 +33,7 @@
     <Resource Include="StaticFiles\img\fakeProfile.png" />
     <Resource Include="StaticFiles\img\heart.png" />
     <Resource Include="StaticFiles\img\home.png" />
+    <Resource Include="StaticFiles\img\image.png" />
     <Resource Include="StaticFiles\img\logo.png" />
     <Resource Include="StaticFiles\img\more.png" />
     <Resource Include="StaticFiles\img\notifiation.png" />
