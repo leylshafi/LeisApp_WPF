@@ -94,7 +94,7 @@
         <Border Grid.Column="2" BorderThickness="1 0 0 0" BorderBrush="LightCyan">
             <Canvas>
                 <Border BorderThickness="5" Height="40" Width="200" BorderBrush="AliceBlue" Background="LightGray" CornerRadius="18" >
-                    <TextBox Margin="5" Text="Search Twitter" BorderThickness="0" Background="Transparent" />
+                    <usercontrols:TextBoxPlaceHolder Margin="5" PlaceHolderText="Search Twitter" BorderThickness="0" Background="Transparent" />
                 </Border>
             </Canvas>
         </Border>
