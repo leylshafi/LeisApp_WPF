@@ -16,11 +16,14 @@ namespace Source.ViewModels
 
         public ICommand GoProfileCommand { get; }
         public ICommand GoHomeCommand { get; }
+        public ICommand GoExploreCommand { get; }
 
         public MainViewModel(NavigationStore navigationStore)
         {
             GoProfileCommand = new NavProfileCommand(navigationStore);
             GoHomeCommand= new NavHomeCommand(navigationStore);
+            GoExploreCommand = new NavExploreCommand(navigationStore);
+
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModel = new HomeViewModel();
             _navigationStore.CurrentViewModelChanged += _navigationStore_CurrentViewModelChanged;

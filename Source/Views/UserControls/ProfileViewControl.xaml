@@ -28,8 +28,15 @@
                     </Ellipse.Fill>
                 </Ellipse>
                 <Button Content="edit profile" Height="20" Width="100" HorizontalAlignment="Right" Canvas.Right="10" Canvas.Top="10" />
+                <TextBlock Text="Azerbaijan" FontSize="12" Canvas.Top="52" Canvas.Right="15" Foreground="LightSlateGray" />
+                <TextBlock Text="Born December 8, 2003" FontSize="12" Canvas.Top="67" Canvas.Right="15" Foreground="LightSlateGray" />
+                
                 <TextBlock Text="FullName" FontSize="18" Canvas.Top="30" Canvas.Left="15" />
                 <TextBlock Text="@username" FontSize="12" Canvas.Top="52" Canvas.Left="15" Foreground="LightSlateGray" />
+                <TextBlock Text="32" FontSize="12" Canvas.Top="68" Canvas.Left="15" Foreground="LightSlateGray" />
+                <TextBlock Text="Following" FontSize="12" Canvas.Top="68" Canvas.Left="35" Foreground="LightSlateGray" />
+                <TextBlock Text="14" FontSize="12" Canvas.Top="68" Canvas.Left="110" Foreground="LightSlateGray" />
+                <TextBlock Text="Followers" FontSize="12" Canvas.Top="68" Canvas.Left="125" Foreground="LightSlateGray" />
             </Canvas>
         </StackPanel>
 

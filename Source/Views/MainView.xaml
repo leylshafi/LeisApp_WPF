@@ -43,13 +43,16 @@
                             </DockPanel>
                         </Border>
                     </Button>
-                    
-                    <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
-                        <DockPanel Margin="3">
-                            <Image Width="25" Source="/StaticFiles/img/explore.png" Margin="5" Stretch="UniformToFill" />
-                            <TextBlock Text="Explore" Margin="7" FontSize="15" FontWeight="Bold"/>
-                        </DockPanel>
-                    </Border>
+                    <Button Background="Transparent" BorderThickness="0" Margin="-45 0 0 0" Command="{Binding GoExploreCommand}">
+
+                        <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
+                            <DockPanel Margin="3">
+                                <Image Width="25" Source="/StaticFiles/img/explore.png" Margin="5" Stretch="UniformToFill" />
+                                <TextBlock Text="Explore" Margin="7" FontSize="15" FontWeight="Bold"/>
+                            </DockPanel>
+                        </Border>
+                    </Button>
+
                     <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
                         <DockPanel Margin="3">
                             <Image Width="25" Source="/StaticFiles/img/notifiation.png" Margin="5" Stretch="UniformToFill" />
@@ -89,6 +92,9 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vms:ProfileViewModel}">
                     <usercontrols:ProfileViewControl />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:ExploreViewModel}">
+                    <usercontrols:ExploreViewControl />
                 </DataTemplate>
             </Grid.Resources>
             <ContentControl Content="{Binding CurrentViewModel}" />
