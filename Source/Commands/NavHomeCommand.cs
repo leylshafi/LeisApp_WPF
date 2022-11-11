@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace Source.Commands
 {
-    class NavigateCommand:CommandBase
+    class NavHomeCommand : CommandBase
     {
         private readonly NavigationStore _navigationStore;
 
-        public NavigateCommand(NavigationStore navigationStore)
+        public NavHomeCommand(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
         }
 
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = new ProfileViewModel();
+            _navigationStore.CurrentViewModel = new HomeViewModel();
         }
     }
 }

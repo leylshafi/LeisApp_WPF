@@ -35,13 +35,15 @@
             <Canvas Grid.Column="0">
                 <StackPanel Canvas.Right="15">
                     <Image Margin="10 15 0 15" HorizontalAlignment="Left" Width="30" Source="/StaticFiles/img/logo.png" Stretch="UniformToFill" />
-                    <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
-                        <DockPanel Margin="3">
-                            <Image Width="25" Source="/StaticFiles/img/home.png" Margin="5" Stretch="UniformToFill" />
-                            <TextBlock Text="Home" Margin="7" FontSize="15" FontWeight="Bold"/>
-                        </DockPanel>
-                    </Border>
-
+                    <Button Background="Transparent" BorderThickness="0" Margin="-45 0 0 0" Command="{Binding GoHomeCommand}">
+                        <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
+                            <DockPanel Margin="3">
+                                <Image Width="25" Source="/StaticFiles/img/home.png" Margin="5" Stretch="UniformToFill" />
+                                <TextBlock Text="Home" Margin="7" FontSize="15" FontWeight="Bold"/>
+                            </DockPanel>
+                        </Border>
+                    </Button>
+                    
                     <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
                         <DockPanel Margin="3">
                             <Image Width="25" Source="/StaticFiles/img/explore.png" Margin="5" Stretch="UniformToFill" />
@@ -54,14 +56,14 @@
                             <TextBlock Text="Notifications" Margin="7" FontSize="15" FontWeight="Bold"/>
                         </DockPanel>
                     </Border>
-                    <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
-                        <Button Background="Transparent" BorderThickness="0" Command="{Binding GoProfileCommand}">
+                    <Button Background="Transparent" BorderThickness="0" Margin="-45 0 0 0" Command="{Binding GoProfileCommand}">
+                        <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
                             <DockPanel Margin="3">
                                 <Image Width="25" Source="/StaticFiles/img/user.png" Margin="5" Stretch="UniformToFill" />
                                 <TextBlock Text="Profile" Margin="7" FontSize="15" FontWeight="Bold"/>
                             </DockPanel>
-                        </Button>
-                    </Border>
+                        </Border>
+                    </Button>
                     <Border Margin="8 25 0 0" Height="35" Background="#1d9bf0" CornerRadius="15">
                         <TextBlock Text="Tweet" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="15" FontWeight="Bold" />
                     </Border>

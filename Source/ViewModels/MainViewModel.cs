@@ -15,10 +15,12 @@ namespace Source.ViewModels
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
         public ICommand GoProfileCommand { get; }
+        public ICommand GoHomeCommand { get; }
 
         public MainViewModel(NavigationStore navigationStore)
         {
-            GoProfileCommand = new NavigateCommand(navigationStore);
+            GoProfileCommand = new NavProfileCommand(navigationStore);
+            GoHomeCommand= new NavHomeCommand(navigationStore);
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModel = new HomeViewModel();
             _navigationStore.CurrentViewModelChanged += _navigationStore_CurrentViewModelChanged;
