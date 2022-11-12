@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Source.Models
+namespace Source.Models;
+
+public abstract class Entity
 {
-    internal class Entity
-    {
-    }
+    public Guid Id { get; set; }
 }
