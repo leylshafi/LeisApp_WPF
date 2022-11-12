@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="StaticFiles\img\600x200.jpg" />
     <Resource Include="StaticFiles\img\comments.png" />
     <Resource Include="StaticFiles\img\explore.png" />
