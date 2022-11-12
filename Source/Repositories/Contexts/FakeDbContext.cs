@@ -18,10 +18,10 @@ public class FakeDbContext
     };
     public static List<Tweet> Tweets { get; set; } = new()
     {
-        new Tweet { Id=Guid.NewGuid(), User=Users[0],Username="NewUser",Content="C" ,Date=DateTime.Now},
-        new Tweet {  Id=Guid.NewGuid(), User=Users[1],Username="NewUser",Content="C++" ,Date=DateTime.Now},
-        new Tweet { Id=Guid.NewGuid(), User=Users[2],Username="NewUser",Content="C#" ,Date=DateTime.Now},
-        new Tweet { Id=Guid.NewGuid(), User=Users[1],Username="NewUser",Content="C#" ,Date=DateTime.Now},
-        new Tweet { Id=Guid.NewGuid(), User=Users[0],Username="NewUser",Content="C#" ,Date=DateTime.Now}
+        new Tweet { Id=Guid.NewGuid(), User=Users[0],Content="C" ,Date=DateTime.Now},
+        new Tweet {  Id=Guid.NewGuid(), User=Users[1],Content="C++" ,Date=DateTime.Now},
+        new Tweet { Id=Guid.NewGuid(), User=Users[2],Content="C#" ,Date=DateTime.Now},
+        new Tweet { Id=Guid.NewGuid(), User=Users[1],Content="C#" ,Date=DateTime.Now},
+        new Tweet { Id=Guid.NewGuid(), User=Users[0],Content="C#" ,Date=DateTime.Now}
     };
 }
