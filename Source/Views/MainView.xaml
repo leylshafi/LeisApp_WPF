@@ -16,12 +16,27 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Style TargetType="ScrollViewer">
-            <Style.Triggers>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter Property="ScrollViewer.Visibility" Value="Hidden" />
-                </Trigger>
-            </Style.Triggers>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="Transparent"/>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" CornerRadius="5,5,5,5">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
     <Grid>
@@ -35,7 +50,7 @@
             <Canvas Grid.Column="0">
                 <StackPanel Canvas.Right="15">
                     <Image Margin="10 15 0 15" HorizontalAlignment="Left" Width="30" Source="/StaticFiles/img/logo.png" Stretch="UniformToFill" />
-                    <Button Background="Transparent" BorderThickness="0" Margin="-45 0 0 0" Command="{Binding GoHomeCommand}">
+                    <Button Background="Transparent" Width="100" BorderThickness="0" Margin="-50 0 0 0" Command="{Binding GoHomeCommand}">
                         <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
                             <DockPanel Margin="3">
                                 <Image Width="25" Source="/StaticFiles/img/home.png" Margin="5" Stretch="UniformToFill" />
@@ -43,8 +58,8 @@
                             </DockPanel>
                         </Border>
                     </Button>
-                    <Button Background="Transparent" BorderThickness="0" Margin="-45 0 0 0" Command="{Binding GoExploreCommand}">
 
+                    <Button Background="Transparent" Width="110" BorderThickness="0" Margin="-40 0 0 0" Command="{Binding GoExploreCommand}">
                         <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
                             <DockPanel Margin="3">
                                 <Image Width="25" Source="/StaticFiles/img/explore.png" Margin="5" Stretch="UniformToFill" />
@@ -53,13 +68,16 @@
                         </Border>
                     </Button>
 
-                    <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
-                        <DockPanel Margin="3">
-                            <Image Width="25" Source="/StaticFiles/img/notifiation.png" Margin="5" Stretch="UniformToFill" />
-                            <TextBlock Text="Notifications" Margin="7" FontSize="15" FontWeight="Bold"/>
-                        </DockPanel>
-                    </Border>
-                    <Button Background="Transparent" BorderThickness="0" Margin="-45 0 0 0" Command="{Binding GoProfileCommand}">
+                    <Button Background="Transparent" BorderThickness="0" Margin="-3 0 0 0" Command="{Binding GoExploreCommand}">
+                        <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
+                            <DockPanel Margin="3">
+                                <Image Width="25" Source="/StaticFiles/img/notifiation.png" Margin="5" Stretch="UniformToFill" />
+                                <TextBlock Text="Notifications" Margin="7" FontSize="15" FontWeight="Bold"/>
+                            </DockPanel>
+                        </Border>
+                    </Button>
+
+                    <Button Background="Transparent" Width="103" BorderThickness="0" Margin="-50 0 0 0" Command="{Binding GoProfileCommand}">
                         <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
                             <DockPanel Margin="3">
                                 <Image Width="25" Source="/StaticFiles/img/user.png" Margin="5" Stretch="UniformToFill" />
@@ -67,9 +85,12 @@
                             </DockPanel>
                         </Border>
                     </Button>
-                    <Border Margin="8 25 0 0" Height="35" Background="#1d9bf0" CornerRadius="15">
+
+                    <Button Background="Transparent" BorderThickness="0" Margin="0 25 0 0">
+                    <Border Width="130" Height="35" Background="#1d9bf0" CornerRadius="15">
                         <TextBlock Text="Tweet" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="15" FontWeight="Bold" />
                     </Border>
+                    </Button>
                 </StackPanel>
 
                 <Border Style="{StaticResource HoverableGray}" Width="150" CornerRadius="15" Canvas.Right="15" Canvas.Bottom="5">
