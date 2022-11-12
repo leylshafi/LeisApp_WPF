@@ -8,6 +8,11 @@ namespace Source.Models;
 
 public class Tweet:Entity
 {
-    public string? User { get; set; }
+    public User? User { get; set; }
+    public string? Username { get; set; }
     public string? Content { get; set; }
+    public DateTime Date { get; set; }
+
+    public string? UserWithAt => $"@{Username}";
+
 }

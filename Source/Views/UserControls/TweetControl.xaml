@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Source.Views.UserControls"
+             xmlns:local="clr-namespace:Source.Views.UserControls" xmlns:viewmodels="clr-namespace:Source.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:HomeViewModel}"
              mc:Ignorable="d" HorizontalAlignment="Stretch" Height="150">
 
     <Canvas>
@@ -14,13 +14,13 @@
                 </Ellipse.Fill>
             </Ellipse>
             <StackPanel Orientation="Horizontal">
-                <TextBlock FontWeight="Bold" Text="FullName" Margin="5" />
-                <TextBlock Text="@username" Margin="5"/>
-                <TextBlock Text="Date" Margin="5"/>
+                <TextBlock FontWeight="Bold" Text="{Binding User.Fullname}" Margin="5" />
+                <TextBlock Text="{Binding UserWithAt}" Margin="5"/>
+                <TextBlock Text="{Binding Date}" Margin="5"/>
             </StackPanel>
         </StackPanel>
         <Image Canvas.Right="15" Canvas.Top="22" Height="25" Source="/StaticFiles/img/more.png" Stretch="UniformToFill" />
-        <TextBlock Text="ExampleTweetContent" Canvas.Left="115" Canvas.Top="50" />
+        <TextBlock Text="{Binding Content}" Canvas.Left="115" Canvas.Top="50" />
         <StackPanel Canvas.Bottom="0" Canvas.Left="110" Orientation="Horizontal">
             <Image Source="/StaticFiles/img/comments.png" Margin="0 5 25 5" />
             <Image Source="/StaticFiles/img/retweet.png" Margin="0 5 25 5" />
