@@ -39,4 +39,8 @@
     <Resource Include="StaticFiles\img\user.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ResourceDictionaries\" />
+  </ItemGroup>
+
 </Project>
