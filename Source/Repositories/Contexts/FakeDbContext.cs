@@ -10,10 +10,18 @@ namespace Source.Repositories.Contexts;
 
 public class FakeDbContext
 {
+    public static List<User> Users { get; set; } = new()
+    {
+        new User { Name="Leyla", Surname="Shafiyeva"},
+        new User { Name="Isa", Surname="Mammadli" },
+        new User { Name="Nigar", Surname="Shafiyeva"}
+    };
     public static List<Tweet> Tweets { get; set; } = new()
     {
-        new Tweet { Id=Guid.NewGuid(),User="New User",Content="C" },
-        new Tweet {  Id=Guid.NewGuid(),User="New User",Content="C++" },
-        new Tweet { Id=Guid.NewGuid(),User="New User",Content="C#" }
+        new Tweet { Id=Guid.NewGuid(), User=Users[0],Username="NewUser",Content="C" ,Date=DateTime.Now},
+        new Tweet {  Id=Guid.NewGuid(), User=Users[1],Username="NewUser",Content="C++" ,Date=DateTime.Now},
+        new Tweet { Id=Guid.NewGuid(), User=Users[2],Username="NewUser",Content="C#" ,Date=DateTime.Now},
+        new Tweet { Id=Guid.NewGuid(), User=Users[1],Username="NewUser",Content="C#" ,Date=DateTime.Now},
+        new Tweet { Id=Guid.NewGuid(), User=Users[0],Username="NewUser",Content="C#" ,Date=DateTime.Now}
     };
 }

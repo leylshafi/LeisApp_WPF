@@ -18,12 +18,24 @@ class HomeViewModel:ViewModelBase
 {
     public ObservableCollection<Tweet>? Tweets { get; set; }
 
+    private Tweet? _tweet;
+
+    public Tweet? SelectedTweet 
+    {
+        get { return _tweet; }
+        set
+        {
+            _tweet = value;
+            OnPropertyChanged(nameof(SelectedTweet));
+        }
+    }
     public HomeViewModel()
     {
         Tweets = new();
         for (int i = 0; i < FakeDbContext.Tweets.Count; i++)
         {
             Tweets.Add(FakeDbContext.Tweets[i]);
+            SelectedTweet = Tweets[i];
         }
     }
 
