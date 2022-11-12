@@ -15,7 +15,8 @@
 
                     <TextBlock Margin="4 30 0 0" FontSize="14" Text="Password:"></TextBlock>
                     <PasswordBox Margin="4 0" Background="Transparent" BorderBrush="Transparent"></PasswordBox>
-                    
+
+                    <Button Margin="10" Width="70" Height="30" Content="Log in"></Button>
                     
 
                 </StackPanel>
