@@ -10,41 +10,23 @@
         <Canvas Margin="0 0 0 30" DockPanel.Dock="Top">
             <TextBlock FontWeight="Bold" FontSize="15" Margin="12 10" Text="Home" />
         </Canvas>
-        <!--<ScrollViewer DockPanel.Dock="Bottom" >
-            <StackPanel>
-                <Border BorderBrush="LightSlateGray" BorderThickness="1" Margin="10">
-                    <Grid Margin="5">
-                        <usercontrols:AddTweetControl />
-                    </Grid>
-                </Border>
-                <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="50" Margin="10">
-                    <Grid Margin="10">
-                        <usercontrols:TweetControl />
-                    </Grid>
-                </Border>
-                <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="50" Margin="10">
-                    <Grid Margin="10">
-                        <usercontrols:TweetControl />
-                    </Grid>
-                </Border>
-                <Border BorderBrush="LightSlateGray" BorderThickness="1" CornerRadius="50" Margin="10">
-                    <Grid Margin="10">
-                        <usercontrols:TweetControl />
-                    </Grid>
-                </Border>
-            </StackPanel>
-        </ScrollViewer>-->
-
         <ScrollViewer Name="scrl" VerticalScrollBarVisibility="Auto">
-            <ItemsControl Name="itms" Margin="20" ItemsSource="{Binding Tweets}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <usercontrols:TweetControl></usercontrols:TweetControl>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <StackPanel>
+            <usercontrols:AddTweetControl></usercontrols:AddTweetControl>
+           
+                <ItemsControl Name="itms" Margin="20" ItemsSource="{Binding Tweets}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <usercontrols:TweetControl></usercontrols:TweetControl>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+           
+        </StackPanel>
         </ScrollViewer>
+
+
     </DockPanel>
 </UserControl>
