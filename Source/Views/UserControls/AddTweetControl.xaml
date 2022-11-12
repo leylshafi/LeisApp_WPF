@@ -14,7 +14,7 @@
                         <ImageBrush ImageSource="/StaticFiles/img/fakeProfile.png" Stretch="UniformToFill" />
                     </Ellipse.Fill>
                 </Ellipse>
-                <TextBox Text="What's happening?" Margin="10 40" />
+                <local:TextBoxPlaceHolder PlaceHolderText="What's happening?" Margin="0 20"></local:TextBoxPlaceHolder>
             </StackPanel>
         </StackPanel>
         <StackPanel Canvas.Bottom="20" Canvas.Left="120" HorizontalAlignment="Center" Orientation="Horizontal">
