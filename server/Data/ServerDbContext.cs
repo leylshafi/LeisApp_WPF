@@ -11,10 +11,10 @@ namespace server.Data
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Person> People { get; set; }
         public DbSet<Tweet> Tweets { get; set; }
-        public DbSet<Reply> Replies { get; set; }
-        public DbSet<Like> Likes { get; set; }
-
+        public DbSet<ReTweet> Replies { get; set; }
+        public DbSet<Follower> Followers { get; set; }
+        public DbSet<Following> Following { get; set; }
+        public DbSet<Comment> Comments { get; set;}
     }
 }

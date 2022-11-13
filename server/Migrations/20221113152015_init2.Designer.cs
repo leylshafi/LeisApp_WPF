@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using server.Data;
 
@@ -11,9 +12,11 @@ using server.Data;
 namespace server.Migrations
 {
     [DbContext(typeof(ServerDbContext))]
-    partial class ServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221113152015_init2")]
+    partial class init2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -121,7 +124,7 @@ namespace server.Migrations
                     b.Property<int>("LikesCount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ReTweetId")
+                    b.Property<int>("ReTweetId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")
@@ -130,8 +133,7 @@ namespace server.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ReTweetId")
-                        .IsUnique()
-                        .HasFilter("[ReTweetId] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("UserId");
 
@@ -218,7 +220,9 @@ namespace server.Migrations
                 {
                     b.HasOne("server.Models.ReTweet", "ReTweet")
                         .WithOne("Retweet")
-                        .HasForeignKey("server.Models.Tweet", "ReTweetId");
+                        .HasForeignKey("server.Models.Tweet", "ReTweetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("server.Models.User", "User")
                         .WithMany("Tweets")
