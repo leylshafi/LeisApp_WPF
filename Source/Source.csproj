@@ -20,6 +20,7 @@
     <None Remove="StaticFiles\img\notifiation.png" />
     <None Remove="StaticFiles\img\retweet.png" />
     <None Remove="StaticFiles\img\share.png" />
+    <None Remove="StaticFiles\img\twitterLogo.png" />
     <None Remove="StaticFiles\img\user.png" />
   </ItemGroup>
 
@@ -36,6 +37,7 @@
     <Resource Include="StaticFiles\img\notifiation.png" />
     <Resource Include="StaticFiles\img\retweet.png" />
     <Resource Include="StaticFiles\img\share.png" />
+    <Resource Include="StaticFiles\img\twitterLogo.png" />
     <Resource Include="StaticFiles\img\user.png" />
   </ItemGroup>
 
