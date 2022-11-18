@@ -18,6 +18,7 @@
             </Border>
             
         </Canvas>
-        <usercontrols:LogInViewControl Grid.Row="1"></usercontrols:LogInViewControl>
+        <usercontrols:NotificationUC Grid.Row="1"></usercontrols:NotificationUC>
+       
     </Grid>
 </UserControl>
