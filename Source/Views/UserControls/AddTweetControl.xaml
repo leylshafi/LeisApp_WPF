@@ -3,22 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Source.Views.UserControls"
+             xmlns:local="clr-namespace:Source.Views.UserControls" xmlns:viewmodels="clr-namespace:Source.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:HomeViewModel}"
              mc:Ignorable="d" 
+             
              Height="150" HorizontalAlignment="Stretch">
     <Canvas>
         <StackPanel Canvas.Left="20" Canvas.Top="20">
             <StackPanel Orientation="Horizontal">
-                <Ellipse Height="90" Width="90">
+                <Ellipse x:Name="img" Height="90" Width="90">
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="/StaticFiles/img/fakeProfile.png" Stretch="UniformToFill" />
+                        <ImageBrush ImageSource="{Binding ImagePath}" />
                     </Ellipse.Fill>
                 </Ellipse>
                 <local:TextBoxPlaceHolder PlaceHolderText="What's happening?" Margin="0 20"></local:TextBoxPlaceHolder>
             </StackPanel>
         </StackPanel>
         <StackPanel Canvas.Bottom="20" Canvas.Left="120" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button  Width="20" Height="20">
+            <Button  Width="20" Height="20" Command="{Binding SetImageCommand}">
                 <Button.Background>
                     <ImageBrush ImageSource="/StaticFiles/img/image.png" Stretch="Uniform"/>
                 </Button.Background>
