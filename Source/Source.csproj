@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="StaticFiles\img\600x200.jpg" />
+    <None Remove="StaticFiles\img\background.jpg" />
     <None Remove="StaticFiles\img\comments.png" />
     <None Remove="StaticFiles\img\explore.png" />
     <None Remove="StaticFiles\img\fakeProfile.png" />
@@ -20,11 +21,13 @@
     <None Remove="StaticFiles\img\notifiation.png" />
     <None Remove="StaticFiles\img\retweet.png" />
     <None Remove="StaticFiles\img\share.png" />
+    <None Remove="StaticFiles\img\twitterLogo.png" />
     <None Remove="StaticFiles\img\user.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="StaticFiles\img\600x200.jpg" />
+    <Resource Include="StaticFiles\img\background.jpg" />
     <Resource Include="StaticFiles\img\comments.png" />
     <Resource Include="StaticFiles\img\explore.png" />
     <Resource Include="StaticFiles\img\fakeProfile.png" />
@@ -36,6 +39,7 @@
     <Resource Include="StaticFiles\img\notifiation.png" />
     <Resource Include="StaticFiles\img\retweet.png" />
     <Resource Include="StaticFiles\img\share.png" />
+    <Resource Include="StaticFiles\img\twitterLogo.png" />
     <Resource Include="StaticFiles\img\user.png" />
   </ItemGroup>
 

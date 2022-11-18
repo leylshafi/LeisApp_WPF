@@ -30,6 +30,16 @@ namespace Source.Views.UserControls
         public static readonly DependencyProperty PlaceHolderTextProperty =
             DependencyProperty.Register("PlaceHolderText", typeof(string), typeof(TextBoxPlaceHolder));
 
+        public int MaxLength
+        {
+            get { return (int)GetValue(MaxLengthProperty); }
+            set { SetValue(MaxLengthProperty, value); }
+        }
+
+        public static readonly DependencyProperty MaxLengthProperty =
+            DependencyProperty.Register("MaxLength", typeof(int), typeof(TextBoxPlaceHolder));
+
+
 
 
 

@@ -29,6 +29,8 @@ namespace Source
             MainView mainView = new MainView();
             mainView.DataContext = new MainViewModel(_navigationStore);
             mainView.Show();
+            LoginWindow login = new();
+            login.ShowDialog();
         }
     }
 }
