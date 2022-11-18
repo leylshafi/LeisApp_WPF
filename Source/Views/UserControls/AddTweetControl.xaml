@@ -18,7 +18,12 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Canvas.Bottom="20" Canvas.Left="120" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Image Source="/StaticFiles/img/image.png" Width="20" />
+            <Button  Width="20" Height="20">
+                <Button.Background>
+                    <ImageBrush ImageSource="/StaticFiles/img/image.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <!--<Image Source="/StaticFiles/img/image.png" Width="20" />-->
         </StackPanel>
     </Canvas>
 </UserControl>
