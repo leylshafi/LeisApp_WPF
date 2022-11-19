@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Source.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for LogInViewControl.xaml
+    /// Interaction logic for NotificationUC.xaml
     /// </summary>
-    public partial class LogInViewControl : UserControl
+    public partial class NotificationUC : UserControl
     {
-        public LogInViewControl()
+        public NotificationUC()
         {
             InitializeComponent();
         }

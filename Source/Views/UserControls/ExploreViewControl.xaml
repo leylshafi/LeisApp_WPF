@@ -16,8 +16,7 @@
             <Border BorderThickness="5" Height="40" Width="350" BorderBrush="AliceBlue" Canvas.Left="75" Background="LightGray" CornerRadius="18" >
                 <usercontrols:TextBoxPlaceHolder PlaceHolderText="Search Twitter" Margin="5" Height="35" Width="350" />
             </Border>
-            
         </Canvas>
-        <usercontrols:LogInViewControl Grid.Row="1"></usercontrols:LogInViewControl>
+
     </Grid>
 </UserControl>
