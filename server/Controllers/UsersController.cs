@@ -43,10 +43,15 @@ namespace server.Controllers
             return Ok(newUser);
         }
 
+
+        // Tweets
+
         [HttpGet("tweets")]
         public async Task<ActionResult<List<Tweet>>> GetTweets()
         {
-            return Ok(await _context.Tweets.ToListAsync());
+            return Ok(await _context.Tweets
+                .Include(t=>t.Comments)
+                .ToListAsync());
         }
 
         [HttpPost("addTweet")]
@@ -63,6 +68,31 @@ namespace server.Controllers
             await _context.Tweets.AddAsync(newTweet);
             await _context.SaveChangesAsync();
             return Ok(newTweet);
+        }
+
+        // Comments
+
+        [HttpGet("comments")]
+        public async Task<ActionResult<List<Comment>>> GetComments()
+        {
+            return Ok(await _context.Comments.ToListAsync());
+        }
+
+        [HttpPost("addComment")]
+        public async Task<ActionResult<Tweet>> AddComment(CommentDto comment)
+        {
+            var newComment = new Comment
+            {
+                Id = comment.Id,
+                Content= comment.Content,
+                Created = comment.Created,
+                ReplingTo= comment.ReplingTo,
+                TweetId=comment.TweetId
+            };
+
+            await _context.Comments.AddAsync(newComment);
+            await _context.SaveChangesAsync();
+            return Ok(newComment);
         }
 
     }

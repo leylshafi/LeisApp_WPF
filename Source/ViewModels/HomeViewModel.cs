@@ -21,7 +21,7 @@ using System.ComponentModel;
 
 namespace Source.ViewModels;
 
-class HomeViewModel : ViewModelBase,INotifyPropertyChanged
+class HomeViewModel : ViewModelBase
 {
     public ObservableCollection<Tweet>? Tweets { get; set; }
     public ICommand SetImageCommand { get; set; }

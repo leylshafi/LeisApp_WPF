@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using server.Data;
 
@@ -11,9 +12,11 @@ using server.Data;
 namespace server.Migrations
 {
     [DbContext(typeof(ServerDbContext))]
-    partial class ServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221119055620_some changes")]
+    partial class somechanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,6 +93,19 @@ namespace server.Migrations
                     b.ToTable("Following");
                 });
 
+            modelBuilder.Entity("server.Models.ReTweet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Replies");
+                });
+
             modelBuilder.Entity("server.Models.Tweet", b =>
                 {
                     b.Property<int>("Id")
@@ -108,10 +124,17 @@ namespace server.Migrations
                     b.Property<int>("LikesCount")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ReTweetId")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ReTweetId")
+                        .IsUnique()
+                        .HasFilter("[ReTweetId] IS NOT NULL");
 
                     b.HasIndex("UserId");
 
@@ -196,6 +219,10 @@ namespace server.Migrations
 
             modelBuilder.Entity("server.Models.Tweet", b =>
                 {
+                    b.HasOne("server.Models.ReTweet", null)
+                        .WithOne("Retweet")
+                        .HasForeignKey("server.Models.Tweet", "ReTweetId");
+
                     b.HasOne("server.Models.User", "User")
                         .WithMany("Tweets")
                         .HasForeignKey("UserId")
@@ -203,6 +230,12 @@ namespace server.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("server.Models.ReTweet", b =>
+                {
+                    b.Navigation("Retweet")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("server.Models.Tweet", b =>

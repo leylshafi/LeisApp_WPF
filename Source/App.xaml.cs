@@ -25,11 +25,9 @@ namespace Source
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            _navigationStore.CurrentViewModel = new MainViewModel(_navigationStore);
-            MainView mainView = new MainView();
-            mainView.DataContext = new MainViewModel(_navigationStore);
-            mainView.Show();
-            LoginWindow login = new();
+            _navigationStore.CurrentViewModel = new HomeViewModel();
+            SignUpView login = new();
+            login.DataContext = new SignUpViewModel(_navigationStore);
             login.ShowDialog();
         }
     }

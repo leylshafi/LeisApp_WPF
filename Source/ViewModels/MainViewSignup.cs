@@ -21,7 +21,7 @@ namespace Source.ViewModels
             //GoSigninCommand = new NavProfileCommand(navigationStore);
 
             _navigationStore = navigationStore;
-            _navigationStore.CurrentViewModel = new SignUpViewModel();
+            _navigationStore.CurrentViewModel = new SignUpViewModel(_navigationStore);
             _navigationStore.CurrentViewModelChanged += _navigationStore_CurrentViewModelChanged;
         }
 
