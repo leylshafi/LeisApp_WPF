@@ -26,7 +26,7 @@ namespace Source.Commands
             _navigationStore.CurrentViewModel = new HomeViewModel();
 
             MainView view = new();
-            view.DataContext = new MainViewModel(_navigationStore);
+            view.DataContext = new MainViewModel(_navigationStore,null);
             view.ShowDialog();
         }
     }

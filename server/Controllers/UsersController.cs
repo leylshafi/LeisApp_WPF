@@ -25,6 +25,24 @@ namespace server.Controllers
             _config = config;
         }
 
+        [HttpGet("user")]
+        public async Task<ActionResult<User>> GetUser(int id)
+        {
+            List<User> users = await _context.Users
+                .Include(u => u.Tweets)
+                .Include(u => u.Following)
+                .Include(u => u.Followers)
+                .ToListAsync();
+
+            var user = users.Where(u => u.Id == id);
+            if (user == null)
+                return NotFound();
+
+            var result = user.ToList()[0];
+
+            return Ok(user.ToList()[0]);
+        }
+
         [HttpGet]
         public async Task<ActionResult<List<User>>> GetUsers()
         {

@@ -1,4 +1,5 @@
 ﻿using Source.Commands;
+using Source.Models;
 using Source.Stores;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Source.ViewModels
         public ICommand GoHomeCommand { get; }
         public ICommand GoExploreCommand { get; }
 
-        public MainViewModel(NavigationStore navigationStore)
+        public MainViewModel(NavigationStore navigationStore,User user)
         {
             GoProfileCommand = new NavProfileCommand(navigationStore);
             GoHomeCommand= new NavHomeCommand(navigationStore);

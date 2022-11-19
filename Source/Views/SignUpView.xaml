@@ -25,12 +25,11 @@
                 <usercontrols:TextBoxPlaceHolder PlaceHolderText="Email" FontSize="15" Margin="50 0" MaxLength="20" BorderThickness="0 0 0 1" BorderBrush="Black"></usercontrols:TextBoxPlaceHolder>
                 <Label Margin="50 5" FontFamily="Bookman Old Style" FontSize="15" Foreground="DarkBlue">Set password:</Label>
                 <PasswordBox  Width="{Binding ElementName=uc, Path=Width}" Margin="50 0" Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="Black" ></PasswordBox>
-                <Button Width="300" Content="Sign up" FontSize="20" Margin="0 5" Background="DodgerBlue" Foreground="WhiteSmoke" FontFamily="Bookman Old Style"></Button>
+                <Button Command="{Binding SubmitCommand}" CommandParameter="{Binding ElementName=SignUp}" Width="300" Content="Sign up" FontSize="20" Margin="0 5" Background="DodgerBlue" Foreground="WhiteSmoke" FontFamily="Bookman Old Style"></Button>
                 <StackPanel Orientation="Horizontal" Margin="50 0"  >
                     <Label FontSize="15" >Already a member?</Label>
                     <Button Command="{Binding SignInCommand}" CommandParameter="{Binding ElementName=SignUp}" FontSize="15" Width="100" Background="Transparent" BorderBrush="Transparent" FontStyle="Italic" Foreground="DarkBlue">Sign in</Button>
                 </StackPanel>
-
             </StackPanel>
         </Grid>
 
