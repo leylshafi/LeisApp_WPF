@@ -1,9 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using server.Data;
 using server.Models;
 using server.Models.Dtos;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace server.Controllers
 {
@@ -12,10 +17,12 @@ namespace server.Controllers
     public class UsersController : ControllerBase
     {
         private readonly ServerDbContext _context;
+        private readonly IConfiguration _config;
 
-        public UsersController(ServerDbContext context)
+        public UsersController(ServerDbContext context, IConfiguration config)
         {
             _context = context;
+            _config = config;
         }
 
         [HttpGet]
@@ -41,6 +48,88 @@ namespace server.Controllers
             await _context.Users.AddAsync(newUser);
             await _context.SaveChangesAsync();
             return Ok(newUser);
+        }
+
+        [HttpPost("register")]
+        public async Task<ActionResult<User>> RegisterUser(UserDto request)
+        {
+            CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
+
+            var newUser = new User()
+            {
+                Username = request.Username,
+                PasswordSalt = passwordSalt,
+                PasswordHash = passwordHash,
+                FirstName = request.FirstName,
+                LastName= request.LastName,
+                BirthDate = request.BirthDate,
+            };
+
+            await _context.Users.AddAsync(newUser);
+            await _context.SaveChangesAsync();
+
+            return newUser;
+        }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<string>> Login(UserDto request)
+        {
+            var existingUser = await _context.Users.FirstOrDefaultAsync(u=>u.Username==request.Username);
+
+            if (existingUser == null)
+            {
+                return BadRequest("User don't found");
+            }
+
+            if (!VerifyPasswordHash(request.Password, existingUser.PasswordHash, existingUser.PasswordSalt))
+            {
+                return BadRequest("Wrong Password");
+            }
+
+            string token = CreateToken(existingUser);
+            return Ok(token);
+        }
+
+        private string CreateToken(User user)
+        {
+
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name,user.Username),
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                _config.GetSection("AppSettings:Token").Value));
+
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.Now.AddHours(8),
+                signingCredentials: creds);
+
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
+
+            return jwt;
+        }
+
+        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+        {
+            using (var hmac = new HMACSHA512(passwordSalt))
+            {
+                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return computedHash.SequenceEqual(passwordHash);
+            };
+        }
+
+        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            using (var hmac = new HMACSHA512())
+            {
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+            };
         }
 
 
