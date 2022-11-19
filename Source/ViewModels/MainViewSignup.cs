@@ -1,5 +1,4 @@
 ﻿using Source.Commands;
-using Source.Models;
 using Source.Stores;
 using System;
 using System.Collections.Generic;
@@ -10,23 +9,19 @@ using System.Windows.Input;
 
 namespace Source.ViewModels
 {
-    class MainViewModel : ViewModelBase
+    class MainViewSignup : ViewModelBase
     {
         private readonly NavigationStore _navigationStore;
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
-        public ICommand GoProfileCommand { get; }
-        public ICommand GoHomeCommand { get; }
-        public ICommand GoExploreCommand { get; }
+        //public ICommand GoSigninCommand { get; }
 
-        public MainViewModel(NavigationStore navigationStore,User user)
+        public MainViewSignup(NavigationStore navigationStore)
         {
-            GoProfileCommand = new NavProfileCommand(navigationStore);
-            GoHomeCommand= new NavHomeCommand(navigationStore);
-            GoExploreCommand = new NavExploreCommand(navigationStore);
+            //GoSigninCommand = new NavProfileCommand(navigationStore);
 
             _navigationStore = navigationStore;
-            _navigationStore.CurrentViewModel = new HomeViewModel();
+            _navigationStore.CurrentViewModel = new SignUpViewModel(_navigationStore);
             _navigationStore.CurrentViewModelChanged += _navigationStore_CurrentViewModelChanged;
         }
 

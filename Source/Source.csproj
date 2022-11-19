@@ -26,6 +26,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="StaticFiles\img\600x200.jpg" />
     <Resource Include="StaticFiles\img\background.jpg" />
     <Resource Include="StaticFiles\img\comments.png" />

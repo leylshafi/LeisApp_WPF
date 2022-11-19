@@ -12,16 +12,9 @@ public class FakeDbContext
 {
     public static List<User> Users { get; set; } = new()
     {
-        new User { Name="Leyla", Surname="Shafiyeva"},
-        new User { Name="Isa", Surname="Mammadli" },
-        new User { Name="Nigar", Surname="Shafiyeva"}
+        new User { FirstName="Leyla", LastName="Shafiyeva"},
     };
     public static List<Tweet> Tweets { get; set; } = new()
     {
-        new Tweet { Id=Guid.NewGuid(), User=Users[0],Content="C" ,Date=DateTime.Now},
-        new Tweet {  Id=Guid.NewGuid(), User=Users[1],Content="C++" ,Date=DateTime.Now},
-        new Tweet { Id=Guid.NewGuid(), User=Users[2],Content="C#" ,Date=DateTime.Now},
-        new Tweet { Id=Guid.NewGuid(), User=Users[1],Content="C#" ,Date=DateTime.Now},
-        new Tweet { Id=Guid.NewGuid(), User=Users[0],Content="C#" ,Date=DateTime.Now}
     };
 }

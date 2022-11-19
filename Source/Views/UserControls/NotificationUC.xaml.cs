@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Source.Views
+namespace Source.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for NotificationUC.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class NotificationUC : UserControl
     {
-        public LoginWindow()
+        public NotificationUC()
         {
             InitializeComponent();
         }
