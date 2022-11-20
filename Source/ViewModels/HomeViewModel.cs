@@ -4,6 +4,12 @@ using Source.Models;
 using Source.Commands;
 using System.IO;
 using Microsoft.Win32;
+using System.Net.Http;
+using System.Windows.Documents;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Linq;
 
 namespace Source.ViewModels;
 
@@ -13,6 +19,7 @@ class HomeViewModel : ViewModelBase
     public ICommand SetImageCommand { get; set; }
 
     public User User { get; set; }
+    public List<Tweet> UserTweets { get; set; }
 
 
 
@@ -43,20 +50,22 @@ class HomeViewModel : ViewModelBase
     public HomeViewModel()
     {
         User = MainViewModel.User;
+        UserTweets = MainViewModel.UserTweets;
         if (User != null)
-        {
-
+        {  
             Tweets = new();
-            for (int i = 0; i < User.Tweets.Count; i++)
+            for (int i = 0; i < UserTweets?.Count; i++)
             {
-                Tweets.Add(User.Tweets[i]);
+                Tweets.Add(UserTweets[i]);
                 SelectedTweet = Tweets[i];
             }
 
-            SetImageCommand = new RelayCommand(ExecuteShowCommand, CanExecuteCommand);
             ImagePath = string.Empty;
         }
     }
+
+
+
     bool CanExecuteCommand(object? parametr) => true;
 
     void ExecuteShowCommand(object? parametr)
