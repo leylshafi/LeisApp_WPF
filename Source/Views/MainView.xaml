@@ -97,8 +97,8 @@
                     <StackPanel Orientation="Horizontal">
                         <Image Width="45" Source="\StaticFiles\img\fakeProfile.png" />
                         <StackPanel>
-                            <TextBlock Text="FullName" FontWeight="Bold" />
-                            <TextBlock Text="@username" />
+                            <TextBlock Text="{Binding User.FirstName}" FontWeight="Bold" />
+                            <TextBlock Text="{Binding User.Username}" />
                         </StackPanel>
                         <Image Margin="5 0 0 0" Source="\StaticFiles\img\more.png" Width="15" />
                     </StackPanel>

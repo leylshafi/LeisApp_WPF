@@ -1,23 +1,9 @@
-﻿using Source.Stores;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using System.Windows;
 using Source.Models;
-using Source.Repositories;
-using Source.Repositories.Contexts;
 using Source.Commands;
 using System.IO;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using Microsoft.Win32;
-using Source.Views.UserControls;
-using System.ComponentModel;
 
 namespace Source.ViewModels;
 
@@ -26,6 +12,7 @@ class HomeViewModel : ViewModelBase
     public ObservableCollection<Tweet>? Tweets { get; set; }
     public ICommand SetImageCommand { get; set; }
 
+    public User User { get; set; }
 
 
 
@@ -55,14 +42,20 @@ class HomeViewModel : ViewModelBase
 
     public HomeViewModel()
     {
-        Tweets = new();
-        for (int i = 0; i < FakeDbContext.Tweets.Count; i++)
+        User = MainViewModel.User;
+        if (User != null)
         {
-            Tweets.Add(FakeDbContext.Tweets[i]);
-            SelectedTweet = Tweets[i];
+
+            Tweets = new();
+            for (int i = 0; i < User.Tweets.Count; i++)
+            {
+                Tweets.Add(User.Tweets[i]);
+                SelectedTweet = Tweets[i];
+            }
+
+            SetImageCommand = new RelayCommand(ExecuteShowCommand, CanExecuteCommand);
+            ImagePath = string.Empty;
         }
-        SetImageCommand = new RelayCommand(ExecuteShowCommand, CanExecuteCommand);
-        ImagePath = String.Empty;
     }
     bool CanExecuteCommand(object? parametr) => true;
 
@@ -77,7 +70,7 @@ class HomeViewModel : ViewModelBase
 
             string filePath = System.IO.Path.GetFullPath(openFileDialog1.FileName);
             StreamReader sr = new StreamReader(filePath);
-            ImagePath= filePath;
+            ImagePath = filePath;
         }
     }
 

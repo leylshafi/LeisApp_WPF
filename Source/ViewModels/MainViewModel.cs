@@ -12,6 +12,8 @@ namespace Source.ViewModels
 {
     class MainViewModel : ViewModelBase
     {
+        public static User User { get; set; }
+
         private readonly NavigationStore _navigationStore;
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
@@ -19,10 +21,11 @@ namespace Source.ViewModels
         public ICommand GoHomeCommand { get; }
         public ICommand GoExploreCommand { get; }
 
-        public MainViewModel(NavigationStore navigationStore,User user)
+        public MainViewModel(NavigationStore navigationStore, User user)
         {
+            User = user;
             GoProfileCommand = new NavProfileCommand(navigationStore);
-            GoHomeCommand= new NavHomeCommand(navigationStore);
+            GoHomeCommand = new NavHomeCommand(navigationStore);
             GoExploreCommand = new NavExploreCommand(navigationStore);
 
             _navigationStore = navigationStore;
