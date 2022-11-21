@@ -17,6 +17,19 @@ namespace Source.ViewModels;
 
 class HomeViewModel : ViewModelBase
 {
+    private string _content;
+
+    public string Content
+    {
+        get => _content;
+        set
+        {
+            _content = value;
+            OnPropertyChanged(nameof(Content));
+        }
+    }
+
+
     public ObservableCollection<Tweet>? Tweets { get; set; }
     public ICommand SetImageCommand { get; set; }
     public ICommand AddCommand { get; set; }
@@ -75,11 +88,16 @@ class HomeViewModel : ViewModelBase
 
     private void AddExecuteCommand(object? obj)
     {
-        Tweets.Add(new Tweet()
+        Tweets.Insert(0,new Tweet()
         {
-            Content="Hello"
+            Content= Content,
+            Created=DateTime.Now,
+            User=User,
+
         });
-      MessageBox.Show(Tweets.Count.ToString());
+        Content=String.Empty;
+
+
     }
 
     bool CanExecuteCommand(object? parametr) => true;
