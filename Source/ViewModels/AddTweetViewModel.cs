@@ -49,7 +49,8 @@ namespace Source.ViewModels
             var response = await client.PostAsJsonAsync("https://localhost:7143/api/Users/addTweet", newTweet);
             if (response.IsSuccessStatusCode)
             {
-
+                MainViewModel.SyncTweets();
+                HomeViewModel.Tweets.Add(MainViewModel.UserTweets.Last());
                 if (obj != null)
                 {
                     obj.Close();

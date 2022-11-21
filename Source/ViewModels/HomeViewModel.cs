@@ -17,7 +17,7 @@ namespace Source.ViewModels;
 
 class HomeViewModel : ViewModelBase
 {
-    public ObservableCollection<Tweet>? Tweets { get; set; }
+    public static ObservableCollection<Tweet>? Tweets { get; set; }
     public ICommand SetImageCommand { get; set; }
     public ICommand AddCommand { get; set; }
 
@@ -55,7 +55,7 @@ class HomeViewModel : ViewModelBase
         User = MainViewModel.User;
         UserTweets = MainViewModel.UserTweets;
         if (User != null)
-        {  
+        {
             Tweets = new();
             for (int i = 0; i < UserTweets?.Count; i++)
             {
@@ -77,9 +77,9 @@ class HomeViewModel : ViewModelBase
     {
         Tweets.Add(new Tweet()
         {
-            Content="Hello"
+            Content = "Hello"
         });
-      MessageBox.Show(Tweets.Count.ToString());
+        MessageBox.Show(Tweets.Count.ToString());
     }
 
     bool CanExecuteCommand(object? parametr) => true;

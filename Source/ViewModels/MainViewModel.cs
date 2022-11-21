@@ -29,11 +29,7 @@ namespace Source.ViewModels
         public MainViewModel(NavigationStore navigationStore, User user)
         {
             User = user;
-            HttpClient client = new HttpClient();
-            var response = client.GetAsync("https://localhost:7143/api/Users/tweets");
-            var tweetString = response.Result.Content.ReadAsStringAsync();
-            UserTweets = JsonConvert.DeserializeObject<List<Tweet>>(tweetString.Result);
-            UserTweets.ForEach(t => t.User = User);
+            SyncTweets();
 
             GoProfileCommand = new NavProfileCommand(navigationStore);
             GoHomeCommand = new NavHomeCommand(navigationStore);
@@ -43,6 +39,15 @@ namespace Source.ViewModels
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModel = new HomeViewModel();
             _navigationStore.CurrentViewModelChanged += _navigationStore_CurrentViewModelChanged;
+        }
+
+        public static void SyncTweets()
+        {
+            HttpClient client = new HttpClient();
+            var response = client.GetAsync("https://localhost:7143/api/Users/tweets");
+            var tweetString = response.Result.Content.ReadAsStringAsync();
+            UserTweets = JsonConvert.DeserializeObject<List<Tweet>>(tweetString.Result);
+            UserTweets.ForEach(t => t.User = User);
         }
 
         private void _navigationStore_CurrentViewModelChanged()
