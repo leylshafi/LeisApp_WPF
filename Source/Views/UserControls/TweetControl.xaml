@@ -14,9 +14,9 @@
                 </Ellipse.Fill>
             </Ellipse>
             <StackPanel Orientation="Horizontal">
-                <TextBlock FontWeight="Bold" Text="{Binding SelectedTweet.User.FirstName}" Margin="5" />
-                <TextBlock Text="{Binding SelectedTweet.User.Username}" Margin="5"/>
-                <TextBlock Text="{Binding SelectedTweet.Created}" Margin="5"/>
+                <TextBlock FontWeight="Bold" Text="{Binding User.FirstName}" Margin="5" />
+                <TextBlock Text="{Binding User.Username}" Margin="5"/>
+                <TextBlock Text="{Binding Created}" Margin="5"/>
             </StackPanel>
         </StackPanel>
         <Image Canvas.Right="15" Canvas.Top="22" Height="25" Source="/StaticFiles/img/more.png" Stretch="UniformToFill" />
