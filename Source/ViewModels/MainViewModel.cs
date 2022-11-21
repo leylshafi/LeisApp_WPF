@@ -4,18 +4,21 @@ using Source.Models;
 using Source.Stores;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Source.ViewModels
 {
     class MainViewModel : ViewModelBase
     {
-        public static User User { get; set; }
-        public static List<Tweet> UserTweets { get; set; }
+        public static User? User { get; set; }
+        public static List<Tweet>? UserTweets { get; set; }
 
         private readonly NavigationStore _navigationStore;
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
@@ -28,7 +31,7 @@ namespace Source.ViewModels
         {
             User = user;
             SyncTweets();
-
+           
             GoProfileCommand = new NavProfileCommand(navigationStore);
             GoHomeCommand = new NavHomeCommand(navigationStore);
             GoExploreCommand = new NavExploreCommand(navigationStore);

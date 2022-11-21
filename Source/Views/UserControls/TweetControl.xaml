@@ -16,6 +16,7 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock FontWeight="Bold" Text="{Binding SelectedTweet.User.FirstName}" Margin="5" />
                 <TextBlock Text="{Binding SelectedTweet.User.Username}" Margin="5"/>
+                <TextBlock Text="{Binding SelectedTweet.Content}" Margin="5"/>
                 <TextBlock Text="{Binding SelectedTweet.Created}" Margin="5"/>
             </StackPanel>
         </StackPanel>

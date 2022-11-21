@@ -24,7 +24,8 @@
                     <ImageBrush ImageSource="/StaticFiles/img/image.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <!--<Image Source="/StaticFiles/img/image.png" Width="20" />-->
+            <Button Margin="65 0" Width="30" Command="{Binding AddCommand}">ADD</Button>
+           
         </StackPanel>
     </Canvas>
 </UserControl>
