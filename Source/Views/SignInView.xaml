@@ -6,7 +6,7 @@
         xmlns:usercontrols="clr-namespace:Source.Views.UserControls"
         mc:Ignorable="d"
         x:Name="SignIn"
-        Title="SignIn" Height="450" Width="800">
+        Title="SignIn" Height="450" Width="800" Icon="/StaticFiles/img/twitterLogo.png" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="/StaticFiles/img/background.jpg"/>
     </Window.Background>

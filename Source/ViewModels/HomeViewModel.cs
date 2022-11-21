@@ -88,12 +88,11 @@ class HomeViewModel : ViewModelBase
 
     private void AddExecuteCommand(object? obj)
     {
-        Tweets.Insert(0,new Tweet()
+        Tweets?.Insert(0,new Tweet()
         {
             Content= Content,
             Created=DateTime.Now,
             User=User,
-
         });
         Content=String.Empty;
 
