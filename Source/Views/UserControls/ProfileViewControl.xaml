@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Source.Views.UserControls"
+             xmlns:viewModel="clr-namespace:Source.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
@@ -30,12 +31,12 @@
                 <Button Content="edit profile" Height="20" Width="100" HorizontalAlignment="Right" Canvas.Right="10" Canvas.Top="10" />
                 <TextBlock Text="Azerbaijan" FontSize="12" Canvas.Top="52" Canvas.Right="15" Foreground="LightSlateGray" />
                 <TextBlock Text="Born December 8, 2003" FontSize="12" Canvas.Top="67" Canvas.Right="15" Foreground="LightSlateGray" />
-                
-                <TextBlock Text="FullName" FontSize="18" Canvas.Top="30" Canvas.Left="15" />
-                <TextBlock Text="@username" FontSize="12" Canvas.Top="52" Canvas.Left="15" Foreground="LightSlateGray" />
-                <TextBlock Text="32" FontSize="12" Canvas.Top="68" Canvas.Left="15" Foreground="LightSlateGray" />
+
+                <TextBlock Text="{Binding User.FirstName}" FontSize="18" Canvas.Top="30" Canvas.Left="15" />
+                <TextBlock Text="{Binding User.Username}" FontSize="12" Canvas.Top="52" Canvas.Left="15" Foreground="LightSlateGray" />
+                <TextBlock Text="{Binding User.Following.Count}" FontSize="12" Canvas.Top="68" Canvas.Left="15" Foreground="LightSlateGray" />
                 <TextBlock Text="Following" FontSize="12" Canvas.Top="68" Canvas.Left="35" Foreground="LightSlateGray" />
-                <TextBlock Text="14" FontSize="12" Canvas.Top="68" Canvas.Left="110" Foreground="LightSlateGray" />
+                <TextBlock Text="{Binding User.Followers.Count}" FontSize="12" Canvas.Top="68" Canvas.Left="110" Foreground="LightSlateGray" />
                 <TextBlock Text="Followers" FontSize="12" Canvas.Top="68" Canvas.Left="125" Foreground="LightSlateGray" />
             </Canvas>
         </StackPanel>

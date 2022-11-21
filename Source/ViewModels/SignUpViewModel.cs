@@ -18,7 +18,7 @@ using System.Windows.Input;
 
 namespace Source.ViewModels
 {
-    class SignUpViewModel: ViewModelBase
+    class SignUpViewModel : ViewModelBase
     {
         private readonly NavigationStore _navigationStore;
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
@@ -30,14 +30,14 @@ namespace Source.ViewModels
 
         public SignUpViewModel(NavigationStore navigationStore)
         {
-            _navigationStore= navigationStore;
+            _navigationStore = navigationStore;
             SignInCommand = new GalaSoft.MvvmLight.Command.RelayCommand<IClosable>(this.SignInWindow);
             SubmitCommand = new GalaSoft.MvvmLight.Command.RelayCommand<IClosable>(this.SignUpSumbit);
         }
 
         private async void SignUpSumbit(IClosable obj)
         {
-            HttpClient client= new HttpClient();
+            HttpClient client = new HttpClient();
             var response = await client.GetAsync("https://localhost:7143/api/Users");
             var userString = await response.Content.ReadAsStringAsync();
             var user = JsonConvert.DeserializeObject<List<User>>(userString);
@@ -45,12 +45,13 @@ namespace Source.ViewModels
             _navigationStore.CurrentViewModel = new MainViewModel(_navigationStore, user[0]);
             MainView mainView = new();
             mainView.DataContext = new MainViewModel(_navigationStore, user[0]);
-            mainView.Show();
 
             if (obj != null)
             {
                 obj.Close();
             }
+            mainView.Show();
+
         }
 
         private void SignInWindow(IClosable obj)

@@ -1,23 +1,15 @@
-﻿using Source.Stores;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using System.Windows;
 using Source.Models;
-using Source.Repositories;
-using Source.Repositories.Contexts;
 using Source.Commands;
 using System.IO;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using Microsoft.Win32;
-using Source.Views.UserControls;
-using System.ComponentModel;
+using System.Net.Http;
+using System.Windows.Documents;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Linq;
 
 namespace Source.ViewModels;
 
@@ -26,6 +18,8 @@ class HomeViewModel : ViewModelBase
     public ObservableCollection<Tweet>? Tweets { get; set; }
     public ICommand SetImageCommand { get; set; }
 
+    public User User { get; set; }
+    public List<Tweet> UserTweets { get; set; }
 
 
 
@@ -55,15 +49,23 @@ class HomeViewModel : ViewModelBase
 
     public HomeViewModel()
     {
-        Tweets = new();
-        for (int i = 0; i < FakeDbContext.Tweets.Count; i++)
-        {
-            Tweets.Add(FakeDbContext.Tweets[i]);
-            SelectedTweet = Tweets[i];
+        User = MainViewModel.User;
+        UserTweets = MainViewModel.UserTweets;
+        if (User != null)
+        {  
+            Tweets = new();
+            for (int i = 0; i < UserTweets?.Count; i++)
+            {
+                Tweets.Add(UserTweets[i]);
+                SelectedTweet = Tweets[i];
+            }
+
+            ImagePath = string.Empty;
         }
-        SetImageCommand = new RelayCommand(ExecuteShowCommand, CanExecuteCommand);
-        ImagePath = String.Empty;
     }
+
+
+
     bool CanExecuteCommand(object? parametr) => true;
 
     void ExecuteShowCommand(object? parametr)
@@ -77,7 +79,7 @@ class HomeViewModel : ViewModelBase
 
             string filePath = System.IO.Path.GetFullPath(openFileDialog1.FileName);
             StreamReader sr = new StreamReader(filePath);
-            ImagePath= filePath;
+            ImagePath = filePath;
         }
     }
 
