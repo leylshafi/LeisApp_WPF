@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Linq;
+using System;
+using System.Windows;
 
 namespace Source.ViewModels;
 
@@ -17,9 +19,10 @@ class HomeViewModel : ViewModelBase
 {
     public ObservableCollection<Tweet>? Tweets { get; set; }
     public ICommand SetImageCommand { get; set; }
+    public ICommand AddCommand { get; set; }
 
-    public User User { get; set; }
-    public List<Tweet> UserTweets { get; set; }
+    public User? User { get; set; }
+    public List<Tweet>? UserTweets { get; set; }
 
 
 
@@ -62,9 +65,22 @@ class HomeViewModel : ViewModelBase
 
             ImagePath = string.Empty;
         }
+        AddCommand = new RelayCommand(AddExecuteCommand, AddCanExecuteCommand);
     }
 
+    private bool AddCanExecuteCommand(object? obj)
+    {
+        return true;
+    }
 
+    private void AddExecuteCommand(object? obj)
+    {
+        Tweets.Add(new Tweet()
+        {
+            Content="Hello"
+        });
+      MessageBox.Show(Tweets.Count.ToString());
+    }
 
     bool CanExecuteCommand(object? parametr) => true;
 

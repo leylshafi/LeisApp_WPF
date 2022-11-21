@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Source.Commands;
 using Source.Models;
 using Source.Stores;
