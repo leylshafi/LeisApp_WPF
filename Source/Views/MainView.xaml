@@ -86,10 +86,10 @@
                         </Border>
                     </Button>
 
-                    <Button Background="Transparent" BorderThickness="0" Margin="0 25 0 0">
-                    <Border Width="130" Height="35" Background="#1d9bf0" CornerRadius="15">
-                        <TextBlock Text="Tweet" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="15" FontWeight="Bold" />
-                    </Border>
+                    <Button Command="{Binding TweetCommand}" Background="Transparent" BorderThickness="0" Margin="0 25 0 0">
+                        <Border Width="130" Height="35" Background="#1d9bf0" CornerRadius="15">
+                            <TextBlock Text="Tweet" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="15" FontWeight="Bold" />
+                        </Border>
                     </Button>
                 </StackPanel>
 

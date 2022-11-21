@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Source.Views.UserControls.TweetControl"
+<UserControl x:Class="Source.Views.UserControls.TweetControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -14,10 +14,9 @@
                 </Ellipse.Fill>
             </Ellipse>
             <StackPanel Orientation="Horizontal">
-                <TextBlock FontWeight="Bold" Text="{Binding SelectedTweet.User.FirstName}" Margin="5" />
-                <TextBlock Text="{Binding SelectedTweet.User.Username}" Margin="5"/>
-                <TextBlock Text="{Binding SelectedTweet.Content}" Margin="5"/>
-                <TextBlock Text="{Binding SelectedTweet.Created}" Margin="5"/>
+                <TextBlock FontWeight="Bold" Text="{Binding User.FirstName}" Margin="5" />
+                <TextBlock Text="{Binding User.Username}" Margin="5"/>
+                <TextBlock Text="{Binding Created}" Margin="5"/>
             </StackPanel>
         </StackPanel>
         <Image Canvas.Right="15" Canvas.Top="22" Height="25" Source="/StaticFiles/img/more.png" Stretch="UniformToFill" />
