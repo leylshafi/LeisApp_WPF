@@ -28,7 +28,25 @@
                         <ImageBrush ImageSource="/StaticFiles/img/fakeProfile.png" Stretch="UniformToFill" />
                     </Ellipse.Fill>
                 </Ellipse>
-                <Button Content="edit profile" Height="20" Width="100" HorizontalAlignment="Right" Canvas.Right="10" Canvas.Top="10" />
+                <Button Content="Edit profile" FontWeight="DemiBold" Height="23" Width="100" HorizontalAlignment="Right" Canvas.Right="10" Canvas.Top="10">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"></Setter>
+                        </Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.Setters>
+                                        <Setter Property="Background" Value="Black"></Setter>
+                                    </Trigger.Setters>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                        
+                    </Button.Resources>
+                </Button>
                 <TextBlock Text="Azerbaijan" FontSize="12" Canvas.Top="52" Canvas.Right="15" Foreground="LightSlateGray" />
                 <TextBlock Text="Born December 8, 2003" FontSize="12" Canvas.Top="67" Canvas.Right="15" Foreground="LightSlateGray" />
 
