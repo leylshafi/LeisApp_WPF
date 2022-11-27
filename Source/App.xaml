@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Source" 
              >
     <Application.Resources>
+        <ResourceDictionary Source="ResourceDictionaries/CustomStyleRD.xaml"></ResourceDictionary>
         
     </Application.Resources>
 </Application>

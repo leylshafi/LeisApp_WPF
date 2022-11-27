@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:viewModel="clr-namespace:Source.ViewModels"
+             
+             xmlns:viewModel="clr-namespace:Source.ViewModels" d:DataContext="{d:DesignInstance Type=viewModel:ProfileViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
     
@@ -21,14 +22,14 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1">
-            <Image Source="/StaticFiles/img/600x200.jpg" Stretch="Fill" Height="160" />
+            <Image Source="{Binding BackgroundPath}" Stretch="Fill" Height="160" />
             <Canvas>
                 <Ellipse StrokeThickness=".3" Stroke="Black"  HorizontalAlignment="Left" Margin="5 -65 0 0" Height="90" Width="90">
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="/StaticFiles/img/fakeProfile.png" Stretch="UniformToFill" />
+                        <ImageBrush ImageSource="{Binding ImagePath}" Stretch="UniformToFill" />
                     </Ellipse.Fill>
                 </Ellipse>
-                <Button Content="Edit profile" FontWeight="DemiBold" Height="23" Width="100" HorizontalAlignment="Right" Canvas.Right="10" Canvas.Top="10">
+                <Button Command="{Binding EditCommand}" Content="Edit profile" FontWeight="DemiBold" Height="23" Width="100" HorizontalAlignment="Right" Canvas.Right="10" Canvas.Top="10">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"></Setter>
@@ -66,10 +67,11 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Tweets" />
-            <Button Grid.Column="1" Content="Tweet and Replies" />
-            <Button Grid.Column="2" Content="Media" />
-            <Button Grid.Column="3" Content="Likes" />
+            <Button Style="{StaticResource prfl}" Grid.Column="0" Content="Tweets" FontSize="15" FontWeight="DemiBold" Background="Transparent" BorderThickness="0 0 0 2" BorderBrush="Orange" Cursor="Hand"/>
+            <Button Style="{StaticResource prfl}" Grid.Column="1" Content="Tweet and Replies" FontSize="15" FontWeight="DemiBold" Background="Transparent" BorderThickness="0 0 0 2" BorderBrush="Orange" Cursor="Hand" />
+            <Button Style="{StaticResource prfl}" Grid.Column="2" Content="Media" FontSize="15" FontWeight="DemiBold" Background="Transparent" BorderThickness="0 0 0 2" BorderBrush="Orange" Cursor="Hand" />
+            <Button Style="{StaticResource prfl}" Grid.Column="3" Content="Likes" FontSize="15" FontWeight="DemiBold" Background="Transparent" BorderThickness="0 0 0 2" BorderBrush="Orange" Cursor="Hand" />
+            
         </Grid>
     </Grid>
 </UserControl>
