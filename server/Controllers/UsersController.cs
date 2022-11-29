@@ -202,5 +202,29 @@ namespace server.Controllers
             return Ok(newComment);
         }
 
+        // Follow
+
+        [HttpPost("follow")]
+
+        public async Task<ActionResult> Follow(int userId,int followId)
+        {
+            var newFollower = new Follower
+            {
+                Fid = followId,
+                UserId= userId,
+            };
+
+            var newFollowing = new Following
+            {
+                Fid = userId,
+                UserId = followId,
+            };
+
+            await _context.Followers.AddAsync(newFollower);
+            await _context.Following.AddAsync(newFollowing);
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
     }
 }
