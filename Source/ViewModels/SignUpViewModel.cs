@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.CommandWpf;
 using Newtonsoft.Json;
+using server.Models.Dtos;
 using Source.Commands;
 using Source.Models;
 using Source.Stores;
@@ -20,6 +21,49 @@ namespace Source.ViewModels
 {
     class SignUpViewModel : ViewModelBase
     {
+        public UserDto _user;
+
+        private string _username;
+        public string Username
+        {
+            get => _username;
+            set
+            {
+                _username = value;
+                OnPropertyChanged(nameof(Username));
+            }
+        }
+        private string _password;
+        public string Password
+        {
+            get => _password;
+            set
+            {
+                _password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
+        private string _name;
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                _name = value;
+                OnPropertyChanged(nameof(Name));
+            }
+        }
+        private string _surname;
+        public string Surname
+        {
+            get => _surname;
+            set
+            {
+                _surname = value;
+                OnPropertyChanged(nameof(Surname));
+            }
+        }
+
         private readonly NavigationStore _navigationStore;
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
@@ -37,20 +81,23 @@ namespace Source.ViewModels
 
         private async void SignUpSumbit(IClosable obj)
         {
+            // https://localhost:7143/api/Users/register
             HttpClient client = new HttpClient();
-            var response = await client.GetAsync("https://localhost:7143/api/Users");
-            var userString = await response.Content.ReadAsStringAsync();
-            var user = JsonConvert.DeserializeObject<List<User>>(userString);
 
-            _navigationStore.CurrentViewModel = new MainViewModel(_navigationStore, user[0]);
-            MainView mainView = new();
-            mainView.DataContext = new MainViewModel(_navigationStore, user[0]);
+            _user = new();
+            _user.Username = Username;
+            _user.Password = Password;
+            _user.FirstName = Name;
+            _user.LastName = Surname;
 
-            if (obj != null)
+            var response = await client.PostAsJsonAsync("https://localhost:7143/api/Users/register", _user);
+
+            if (response.IsSuccessStatusCode)
             {
-                obj.Close();
+                MessageBox.Show("SignUp Successfull");
+
+                SignInWindow(obj);
             }
-            mainView.Show();
 
         }
 

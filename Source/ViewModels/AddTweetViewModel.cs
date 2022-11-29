@@ -50,7 +50,7 @@ namespace Source.ViewModels
             if (response.IsSuccessStatusCode)
             {
                 MainViewModel.SyncTweets();
-                HomeViewModel.Tweets.Add(MainViewModel.UserTweets.Last());
+                ProfileViewModel.Tweets.Add(MainViewModel.UserTweets.Last());
                 if (obj != null)
                 {
                     obj.Close();

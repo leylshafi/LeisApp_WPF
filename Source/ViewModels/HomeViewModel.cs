@@ -4,14 +4,8 @@ using Source.Models;
 using Source.Commands;
 using System.IO;
 using Microsoft.Win32;
-using System.Net.Http;
-using System.Windows.Documents;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using System.Linq;
 using System;
-using System.Windows;
 
 namespace Source.ViewModels
 {
@@ -35,6 +29,7 @@ namespace Source.ViewModels
 
         public User? User { get; set; }
         public List<Tweet>? UserTweets { get; set; }
+        public List<User>? AllUsers { get; set; }
 
 
 
@@ -65,9 +60,22 @@ namespace Source.ViewModels
         public HomeViewModel()
         {
             User = MainViewModel.User;
-            UserTweets = MainViewModel.UserTweets;
+            AllUsers = MainViewModel.AllUsers;
+            var exUser = new User();
+
             if (User != null)
             {
+                foreach (var item in User.Following)
+                {
+                    exUser = AllUsers.Find(u => u.Id == item.Id);
+                    if (exUser != null)
+                    {
+                        foreach (var tweet in exUser.Tweets)
+                        {
+                            UserTweets.Add(tweet);
+                        }
+                    }
+                }
                 Tweets = new();
                 for (int i = 0; i < UserTweets?.Count; i++)
                 {
@@ -97,7 +105,7 @@ namespace Source.ViewModels
 
         }
 
-    bool CanExecuteCommand(object? parametr) => true;
+        bool CanExecuteCommand(object? parametr) => true;
 
         void ExecuteShowCommand(object? parametr)
         {

@@ -16,6 +16,7 @@ namespace Source.ViewModels
     {
         public static User User { get; set; }
         public static List<Tweet> UserTweets { get; set; }
+        public static List<User> AllUsers { get; set; }
 
         private readonly NavigationStore _navigationStore;
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
@@ -41,13 +42,16 @@ namespace Source.ViewModels
             _navigationStore.CurrentViewModelChanged += _navigationStore_CurrentViewModelChanged;
         }
 
-        public static void SyncTweets()
+        public async static void SyncTweets()
         {
-            HttpClient client = new HttpClient();
-            var response = client.GetAsync("https://localhost:7143/api/Users/tweets");
-            var tweetString = response.Result.Content.ReadAsStringAsync();
-            UserTweets = JsonConvert.DeserializeObject<List<Tweet>>(tweetString.Result);
-            UserTweets.ForEach(t => t.User = User);
+            HttpClient client= new HttpClient();
+            string usersString = await client.GetStringAsync("https://localhost:7143/api/Users");
+            AllUsers = JsonConvert.DeserializeObject<List<User>>(usersString);
+            UserTweets = new();
+            foreach (var tweet in User.Tweets)
+            {
+                UserTweets.Add(tweet);
+            }
         }
 
         private void _navigationStore_CurrentViewModelChanged()

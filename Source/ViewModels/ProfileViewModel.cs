@@ -3,6 +3,7 @@ using Source.Commands;
 using Source.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -40,11 +41,38 @@ namespace Source.ViewModels
         }
 
         public User User { get; set; }
+        public List<Tweet> UserTweets { get; set; }
+        public static ObservableCollection<Tweet>? Tweets { get; set; }
+
+
+        private Tweet? _tweet;
+
+        public Tweet? SelectedTweet
+        {
+            get { return _tweet; }
+            set
+            {
+                _tweet = value;
+                OnPropertyChanged(nameof(SelectedTweet));
+            }
+        }
 
         public ICommand EditCommand { get; set; }
         public ProfileViewModel()
         {
             User = MainViewModel.User;
+            UserTweets = MainViewModel.UserTweets;
+            if (User != null)
+            {
+                Tweets = new();
+                for (int i = 0; i < UserTweets?.Count; i++)
+                {
+                    Tweets.Add(UserTweets[i]);
+                    SelectedTweet = Tweets[i];
+                }
+
+                ImagePath = string.Empty;
+            }
             ImagePath = "StaticFiles/img/user.png";
             BackgroundPath = "StaticFiles/img/background.png";
             EditCommand = new RelayCommand(EditExecuteCommand, EditCanExecuteCommand);

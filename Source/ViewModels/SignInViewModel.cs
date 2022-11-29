@@ -17,7 +17,6 @@ namespace Source.ViewModels
     {
         public UserDto _user;
         private string _username;
-        private string _password;
         public string Username
         {
             get => _username;
@@ -27,6 +26,7 @@ namespace Source.ViewModels
                 OnPropertyChanged(nameof(Username));
             }
         }
+        private string _password;
         public string Password
         {
             get => _password;

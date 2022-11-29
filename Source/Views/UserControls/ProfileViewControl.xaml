@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              
-             xmlns:viewModel="clr-namespace:Source.ViewModels" d:DataContext="{d:DesignInstance Type=viewModel:ProfileViewModel}"
+             xmlns:viewModel="clr-namespace:Source.ViewModels" xmlns:usercontrols="clr-namespace:Source.Views.UserControls" d:DataContext="{d:DesignInstance Type=viewModel:ProfileViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
     
@@ -17,7 +17,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel>
-            <TextBlock Text="FullName" FontSize="18" FontWeight="Bold" />
+            <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding User.FirstName}" FontSize="18" FontWeight="Bold" />
+                <TextBlock Text="{Binding User.LastName}" FontSize="18" FontWeight="Bold" />
+            </StackPanel>
             <TextBlock Text="0 tweet" FontSize="12" Foreground="LightSlateGray" />
         </StackPanel>
 
@@ -73,5 +76,20 @@
             <Button Style="{StaticResource prfl}" Grid.Column="3" Content="Likes" FontSize="15" FontWeight="DemiBold" Background="Transparent" BorderThickness="0 0 0 2" BorderBrush="Orange" Cursor="Hand" />
             
         </Grid>
+        <ScrollViewer Grid.Row="3" Name="scrl" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <usercontrols:AddTweetControl></usercontrols:AddTweetControl>
+
+                <ItemsControl Name="itms" Margin="20" ItemsSource="{Binding Tweets}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <usercontrols:TweetControl></usercontrols:TweetControl>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>
