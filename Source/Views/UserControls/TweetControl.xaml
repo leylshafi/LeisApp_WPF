@@ -5,27 +5,31 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Source.Views.UserControls" xmlns:viewmodels="clr-namespace:Source.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:HomeViewModel}"
              mc:Ignorable="d" HorizontalAlignment="Stretch" Height="150">
-
+    <!--<Button Command="{Binding ShowCommand}">-->
     <Canvas>
-        <StackPanel Orientation="Horizontal" Canvas.Left="20" Canvas.Top="20">
-            <Ellipse Height="90" Width="90">
-                <Ellipse.Fill>
-                    <ImageBrush ImageSource="/StaticFiles/img/fakeProfile.png" Stretch="UniformToFill" />
-                </Ellipse.Fill>
-            </Ellipse>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock FontWeight="Bold" Text="{Binding User.FirstName}" Margin="5" />
-                <TextBlock Text="{Binding User.Username}" Margin="5"/>
-                <TextBlock Text="{Binding Created}" Margin="5"/>
+            <StackPanel Orientation="Horizontal" Canvas.Left="20" Canvas.Top="20">
+                <Ellipse Height="90" Width="90">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/StaticFiles/img/fakeProfile.png" Stretch="UniformToFill" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontWeight="Bold" Text="{Binding User.FirstName}" Margin="5" />
+                    <TextBlock Text="{Binding User.Username}" Margin="5"/>
+                    <TextBlock Text="{Binding Created}" Margin="5"/>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
-        <Image Canvas.Right="15" Canvas.Top="22" Height="25" Source="/StaticFiles/img/more.png" Stretch="UniformToFill" />
-        <TextBlock Text="{Binding Content}" Canvas.Left="115" Canvas.Top="50" />
-        <StackPanel Canvas.Bottom="0" Canvas.Left="110" Orientation="Horizontal">
-            <Image Source="/StaticFiles/img/comments.png" Margin="0 5 25 5" />
-            <Image Source="/StaticFiles/img/retweet.png" Margin="0 5 25 5" />
-            <Image Source="/StaticFiles/img/heart.png" Margin="0 5 25 5" />
-            <Image Source="/StaticFiles/img/share.png" Margin="0 5 25 5" />
-        </StackPanel>
-    </Canvas>
+        <Button Command="{Binding ShowCommand}" Canvas.Right="15" Canvas.Top="22">
+            <!--<Image Height="25" Source="/StaticFiles/img/more.png" Stretch="UniformToFill" />-->
+            bas
+        </Button>
+            <TextBlock Text="{Binding Content}" Canvas.Left="115" Canvas.Top="50" />
+            <StackPanel Canvas.Bottom="0" Canvas.Left="110" Orientation="Horizontal">
+                <Image Source="/StaticFiles/img/comments.png" Margin="0 5 25 5" />
+                <Image Source="/StaticFiles/img/retweet.png" Margin="0 5 25 5" />
+                <Image Source="/StaticFiles/img/heart.png" Margin="0 5 25 5" />
+                <Image Source="/StaticFiles/img/share.png" Margin="0 5 25 5" />
+            </StackPanel>
+        </Canvas>
+    <!--</Button>-->
 </UserControl>

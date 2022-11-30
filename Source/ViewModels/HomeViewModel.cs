@@ -26,6 +26,7 @@ namespace Source.ViewModels
         public static ObservableCollection<Tweet>? Tweets { get; set; }
         public ICommand SetImageCommand { get; set; }
         public ICommand AddCommand { get; set; }
+        public ICommand ShowCommand { get; set; }
 
         public User? User { get; set; }
         public List<Tweet>? UserTweets { get; set; }
@@ -61,18 +62,24 @@ namespace Source.ViewModels
         {
             User = MainViewModel.User;
             AllUsers = MainViewModel.AllUsers;
+            UserTweets = new();
             var exUser = new User();
+
 
             if (User != null)
             {
-                foreach (var item in User.Following)
+                if (AllUsers != null)
                 {
-                    exUser = AllUsers.Find(u => u.Id == item.Id);
-                    if (exUser != null)
+                    foreach (var item in User.Following)
                     {
-                        foreach (var tweet in exUser.Tweets)
+                        exUser = AllUsers.Find(u => u.Id == item.Fid);
+                        if (exUser != null)
                         {
-                            UserTweets.Add(tweet);
+                            foreach (var tweet in exUser.Tweets)
+                            {
+                                tweet.User = exUser;
+                                UserTweets.Add(tweet);
+                            }
                         }
                     }
                 }
@@ -80,7 +87,9 @@ namespace Source.ViewModels
                 for (int i = 0; i < UserTweets?.Count; i++)
                 {
                     Tweets.Add(UserTweets[i]);
+                    Tweets[i].ShowCommand = new ShowTweetCommand(Tweets[i]);
                     SelectedTweet = Tweets[i];
+                    //ShowCommand = new ShowTweetCommand(Tweets[i]);
                 }
 
                 ImagePath = string.Empty;
@@ -103,23 +112,6 @@ namespace Source.ViewModels
             });
             Content = String.Empty;
 
-        }
-
-        bool CanExecuteCommand(object? parametr) => true;
-
-        void ExecuteShowCommand(object? parametr)
-        {
-
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "img files (*.img)|*.png|All files (*.*)|*.*";
-
-            if (openFileDialog1.ShowDialog() == true)
-            {
-
-                string filePath = System.IO.Path.GetFullPath(openFileDialog1.FileName);
-                StreamReader sr = new StreamReader(filePath);
-                ImagePath = filePath;
-            }
         }
     }
 }

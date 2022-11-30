@@ -45,11 +45,12 @@ namespace Source.ViewModels
         public async static void SyncTweets()
         {
             HttpClient client= new HttpClient();
-            string usersString = await client.GetStringAsync("https://localhost:7143/api/Users");
+            string usersString = client.GetStringAsync("https://localhost:7143/api/Users").Result;
             AllUsers = JsonConvert.DeserializeObject<List<User>>(usersString);
             UserTweets = new();
             foreach (var tweet in User.Tweets)
             {
+                tweet.User = User;
                 UserTweets.Add(tweet);
             }
         }

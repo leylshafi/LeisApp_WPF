@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using System.Windows.Input;
 
 namespace Source.Models
 {
@@ -11,6 +12,8 @@ namespace Source.Models
         public List<Comment>? Comments { get; set; }
         public int LikesCount { get; set; }
         public DateTime Created { get; set; }
+
+        public ICommand? ShowCommand { get; set; }
 
         [JsonIgnore]
         public User User { get; set; }
