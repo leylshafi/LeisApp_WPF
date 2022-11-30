@@ -30,6 +30,8 @@ namespace Source.ViewModels
 
 
 
+
+
         public RelayCommand<IClosable> SendTweetCommand { get; private set; }
 
         public AddTweetViewModel(User user)

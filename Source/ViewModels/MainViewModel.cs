@@ -8,12 +8,41 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows;
 using System.Windows.Input;
+using System.Reflection;
+using System.Collections.ObjectModel;
 
 namespace Source.ViewModels
 {
     class MainViewModel : ViewModelBase
     {
+        private string _username;
+
+        public string username
+        {
+            get => _username;
+            set
+            {
+                _username = value;
+                OnPropertyChanged(nameof(username));
+            }
+        }
+
+        private string _content;
+
+        public string Content
+        {
+            get => _content;
+            set
+            {
+                _content = value;
+                OnPropertyChanged(nameof(Content));
+            }
+        }
+
+        public ObservableCollection<User> SelectedUsers { get; set; }
         public static User User { get; set; }
         public static List<Tweet> UserTweets { get; set; }
         public static List<User> AllUsers { get; set; }
@@ -26,20 +55,54 @@ namespace Source.ViewModels
         public ICommand GoExploreCommand { get; }
 
         public ICommand TweetCommand { get; }
+        public ICommand SearchCommand { get; }
 
+        List<User> users;
         public MainViewModel(NavigationStore navigationStore, User user)
         {
+            SelectedUsers = new();
             User = user;
             SyncTweets();
-
+           
             GoProfileCommand = new NavProfileCommand(navigationStore);
             GoHomeCommand = new NavHomeCommand(navigationStore);
             GoExploreCommand = new NavExploreCommand(navigationStore);
             TweetCommand = new TweetCommand(User);
+            SearchCommand = new RelayCommand(ExecuteSearchCommand);
 
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModel = new HomeViewModel();
             _navigationStore.CurrentViewModelChanged += _navigationStore_CurrentViewModelChanged;
+
+            users = new List<User>()
+            {
+                new User()
+                {
+                    Username="leyla"
+                },
+                new User()
+                {
+                    Username="leyla"
+                },
+                new User()
+                {
+                    Username="nigar"
+                },
+            };
+        }
+
+        private void ExecuteSearchCommand(object? obj)
+        {
+            string Username = Content;
+            foreach (User item in users)
+            {
+                if(item.Username == Username)
+                {
+                    SelectedUsers.Add(item);
+                    username= item.Username;
+                }
+            }
+
         }
 
         public async static void SyncTweets()
@@ -59,5 +122,7 @@ namespace Source.ViewModels
         {
             OnPropertyChanged(nameof(CurrentViewModel));
         }
+
+
     }
 }

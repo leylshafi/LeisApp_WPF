@@ -122,9 +122,22 @@
         </Grid>
         <Border Grid.Column="2" BorderThickness="1 0 0 0" BorderBrush="LightCyan">
             <Canvas>
-                <Border BorderThickness="5" Height="40" Width="200" BorderBrush="AliceBlue" Background="LightGray" CornerRadius="18" >
-                    <usercontrols:TextBoxPlaceHolder Margin="5" PlaceHolderText="Search Twitter" BorderThickness="0" Background="Transparent" />
-                </Border>
+                <StackPanel>
+                    <Border BorderThickness="5" Height="40" Width="200" BorderBrush="AliceBlue" Background="LightGray" CornerRadius="18" >
+                        <usercontrols:TextBoxPlaceHolder Text="{Binding Content,Mode=TwoWay}" x:Name="txtbox" Margin="5" PlaceHolderText="Search Twitter" BorderThickness="0" Background="Transparent" />
+                    </Border>
+                    <Button Width="20" Height="20" Command="{Binding SearchCommand}"></Button>
+                    <ItemsControl Name="itms2" Margin="20" ItemsSource="{Binding SelectedUsers}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Username}"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+                
             </Canvas>
         </Border>
     </Grid>
