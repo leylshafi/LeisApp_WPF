@@ -93,6 +93,8 @@ namespace Source.ViewModels
 
         private void ExecuteSearchCommand(object? obj)
         {
+            SelectedUsers.Clear();
+            
             string Username = Content;
             foreach (User item in users)
             {
@@ -100,8 +102,10 @@ namespace Source.ViewModels
                 {
                     SelectedUsers.Add(item);
                     username= item.Username;
+                    
                 }
             }
+            Content = String.Empty;
 
         }
 
