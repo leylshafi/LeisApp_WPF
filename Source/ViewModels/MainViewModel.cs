@@ -66,7 +66,6 @@ namespace Source.ViewModels
            
             GoProfileCommand = new NavProfileCommand(navigationStore);
             GoHomeCommand = new NavHomeCommand(navigationStore);
-            GoExploreCommand = new NavExploreCommand(navigationStore);
             TweetCommand = new TweetCommand(User);
             SearchCommand = new RelayCommand(ExecuteSearchCommand);
 
