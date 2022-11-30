@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Newtonsoft.Json;
+using Source.Commands;
 using Source.Models;
 using Source.Models.Dtos;
 using Source.Stores;
@@ -20,12 +21,14 @@ namespace Source.ViewModels
         private string _content;
 
         public User User { get; set; }
-        public string Content { 
-            get => _content; 
-            set { 
-                _content = value; 
+        public string Content
+        {
+            get => _content;
+            set
+            {
+                _content = value;
                 OnPropertyChanged(nameof(Content));
-            } 
+            }
         }
 
 
@@ -52,7 +55,19 @@ namespace Source.ViewModels
             if (response.IsSuccessStatusCode)
             {
                 MainViewModel.SyncTweets();
-                ProfileViewModel.Tweets.Add(MainViewModel.UserTweets.Last());
+                if (ProfileViewModel.Tweets != null)
+                {
+                    ProfileViewModel.Tweets.Add(MainViewModel.UserTweets.Last());
+                }
+                else
+                {
+                    ProfileViewModel.Tweets = new();
+                    foreach (var item in MainViewModel.UserTweets)
+                    {
+                        ProfileViewModel.Tweets.Add(item);
+                    }
+                }
+
                 if (obj != null)
                 {
                     obj.Close();

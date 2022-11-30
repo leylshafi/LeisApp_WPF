@@ -97,7 +97,8 @@ namespace Source.ViewModels
             string usersString = client.GetStringAsync("https://localhost:7143/api/Users").Result;
             AllUsers = JsonConvert.DeserializeObject<List<User>>(usersString);
             UserTweets = new();
-            foreach (var tweet in User.Tweets)
+            var user = AllUsers.FirstOrDefault(u=>u.Id==User.Id);
+            foreach (var tweet in user.Tweets)
             {
                 tweet.User = User;
                 UserTweets.Add(tweet);
