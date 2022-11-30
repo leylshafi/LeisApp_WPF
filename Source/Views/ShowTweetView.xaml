@@ -23,7 +23,7 @@
             <Image Height="25" Source="/StaticFiles/img/more.png" Stretch="UniformToFill" />
         </Button>
         <TextBlock Text="{Binding Tweet.Content}" Canvas.Left="115" Canvas.Top="50" />
-        <StackPanel Canvas.Bottom="0" Canvas.Left="110" Orientation="Horizontal">
+        <StackPanel Canvas.Top="150" Canvas.Left="110" Orientation="Horizontal">
             <Image Source="/StaticFiles/img/comments.png" Margin="0 5 25 5" />
             <Image Source="/StaticFiles/img/retweet.png" Margin="0 5 25 5" />
             <Image Source="/StaticFiles/img/heart.png" Margin="0 5 25 5" />

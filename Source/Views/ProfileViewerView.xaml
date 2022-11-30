@@ -1,0 +1,58 @@
+﻿<Window x:Class="Source.Views.ProfileViewerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Source.Views" xmlns:usercontrols="clr-namespace:Source.Views.UserControls"
+        mc:Ignorable="d"
+        Title="ProfileViewerView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="250" />
+            <RowDefinition Height="40" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding User.FirstName}" FontSize="18" FontWeight="Bold" />
+                <TextBlock Text="{Binding User.LastName}" FontSize="18" FontWeight="Bold" />
+            </StackPanel>
+            <TextBlock Text="0 tweet" FontSize="12" Foreground="LightSlateGray" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Image Source="{Binding BackgroundPath}" Stretch="Fill" Height="160" />
+            <Canvas>
+                <Ellipse StrokeThickness=".3" Stroke="Black"  HorizontalAlignment="Left" Margin="5 -65 0 0" Height="90" Width="90">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding ImagePath}" Stretch="UniformToFill" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock Text="Azerbaijan" FontSize="12" Canvas.Top="52" Canvas.Right="15" Foreground="LightSlateGray" />
+                <TextBlock Text="Born December 8, 2003" FontSize="12" Canvas.Top="67" Canvas.Right="15" Foreground="LightSlateGray" />
+
+                <TextBlock Text="{Binding User.FirstName}" FontSize="18" Canvas.Top="30" Canvas.Left="15" />
+                <TextBlock Text="{Binding User.Username}" FontSize="12" Canvas.Top="52" Canvas.Left="15" Foreground="LightSlateGray" />
+                <TextBlock Text="{Binding User.Following.Count}" FontSize="12" Canvas.Top="68" Canvas.Left="15" Foreground="LightSlateGray" />
+                <TextBlock Text="Following" FontSize="12" Canvas.Top="68" Canvas.Left="35" Foreground="LightSlateGray" />
+                <TextBlock Text="{Binding User.Followers.Count}" FontSize="12" Canvas.Top="68" Canvas.Left="110" Foreground="LightSlateGray" />
+                <TextBlock Text="Followers" FontSize="12" Canvas.Top="68" Canvas.Left="125" Foreground="LightSlateGray" />
+            </Canvas>
+        </StackPanel>
+        <ScrollViewer Grid.Row="3" Name="scrl" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <ItemsControl Name="itms" Margin="20" ItemsSource="{Binding Tweets}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <usercontrols:TweetControl></usercontrols:TweetControl>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

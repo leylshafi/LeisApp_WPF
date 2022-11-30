@@ -26,11 +26,11 @@ namespace Source.ViewModels
         public static ObservableCollection<Tweet>? Tweets { get; set; }
         public ICommand SetImageCommand { get; set; }
         public ICommand AddCommand { get; set; }
-        public ICommand ShowCommand { get; set; }
+        public ICommand ShowProfileCommand { get; set; }
 
         public User? User { get; set; }
         public List<Tweet>? UserTweets { get; set; }
-        public List<User>? AllUsers { get; set; }
+        public static List<User>? AllUsers { get; set; }
 
 
 
@@ -88,14 +88,17 @@ namespace Source.ViewModels
                 {
                     Tweets.Add(UserTweets[i]);
                     Tweets[i].ShowCommand = new ShowTweetCommand(Tweets[i]);
+                    Tweets[i].ShowProfileCommand = new ShowProfileCommand(Tweets[i].UserId);
+                    Tweets[i].LikeCommand = new LikeTweetCommand(Tweets[i].Id, i);
                     SelectedTweet = Tweets[i];
-                    //ShowCommand = new ShowTweetCommand(Tweets[i]);
                 }
 
                 ImagePath = string.Empty;
             }
             AddCommand = new RelayCommand(AddExecuteCommand, AddCanExecuteCommand);
         }
+
+
 
         private bool AddCanExecuteCommand(object? obj)
         {

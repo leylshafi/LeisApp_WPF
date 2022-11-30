@@ -14,6 +14,8 @@ namespace Source.Models
         public DateTime Created { get; set; }
 
         public ICommand? ShowCommand { get; set; }
+        public ICommand? LikeCommand { get; set; }
+        public ICommand? ShowProfileCommand { get; set; }
 
         [JsonIgnore]
         public User User { get; set; }

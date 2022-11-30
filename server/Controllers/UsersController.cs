@@ -177,6 +177,17 @@ namespace server.Controllers
             return Ok(newTweet);
         }
 
+        [HttpPut("like")]
+        public async Task<ActionResult<User>> AddLike(int tweetId)
+        {
+            var tweet = await _context.Tweets.FindAsync(tweetId);
+            tweet.LikesCount += 1;
+
+            _context.Tweets.Update(tweet);
+            await _context.SaveChangesAsync();
+            return Ok(tweet);
+        }
+
         // Comments
 
         [HttpGet("comments")]
