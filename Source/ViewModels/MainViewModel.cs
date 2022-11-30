@@ -73,36 +73,19 @@ namespace Source.ViewModels
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModel = new HomeViewModel();
             _navigationStore.CurrentViewModelChanged += _navigationStore_CurrentViewModelChanged;
-
-            users = new List<User>()
-            {
-                new User()
-                {
-                    Username="leyla"
-                },
-                new User()
-                {
-                    Username="leyla"
-                },
-                new User()
-                {
-                    Username="nigar"
-                },
-            };
         }
 
         private void ExecuteSearchCommand(object? obj)
         {
             SelectedUsers.Clear();
             
-            string Username = Content;
-            foreach (User item in users)
+            string search = Content;
+            foreach (User item in HomeViewModel.AllUsers)
             {
-                if(item.Username == Username)
+                if(item.Username.Contains(search, StringComparison.OrdinalIgnoreCase))
                 {
                     SelectedUsers.Add(item);
                     username= item.Username;
-                    
                 }
             }
             Content = String.Empty;

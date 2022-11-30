@@ -114,9 +114,6 @@
                 <DataTemplate DataType="{x:Type vms:ProfileViewModel}">
                     <usercontrols:ProfileViewControl />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type vms:ExploreViewModel}">
-                    <usercontrols:ExploreViewControl />
-                </DataTemplate>
             </Grid.Resources>
             <ContentControl Content="{Binding CurrentViewModel}" />
         </Grid>

@@ -12,8 +12,6 @@
         </Canvas>
         <ScrollViewer Name="scrl" VerticalScrollBarVisibility="Auto">
             <StackPanel>
-                <usercontrols:AddTweetControl></usercontrols:AddTweetControl>
-
                 <ItemsControl Name="itms" Margin="20" ItemsSource="{Binding Tweets}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
