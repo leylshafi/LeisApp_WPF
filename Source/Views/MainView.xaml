@@ -59,24 +59,6 @@
                         </Border>
                     </Button>
 
-                    <Button Background="Transparent" Width="110" BorderThickness="0" Margin="-40 0 0 0" Command="{Binding GoExploreCommand}">
-                        <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
-                            <DockPanel Margin="3">
-                                <Image Width="25" Source="/StaticFiles/img/explore.png" Margin="5" Stretch="UniformToFill" />
-                                <TextBlock Text="Explore" Margin="7" FontSize="15" FontWeight="Bold"/>
-                            </DockPanel>
-                        </Border>
-                    </Button>
-
-                    <Button Background="Transparent" BorderThickness="0" Margin="-3 0 0 0" Command="{Binding GoExploreCommand}">
-                        <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
-                            <DockPanel Margin="3">
-                                <Image Width="25" Source="/StaticFiles/img/notifiation.png" Margin="5" Stretch="UniformToFill" />
-                                <TextBlock Text="Notifications" Margin="7" FontSize="15" FontWeight="Bold"/>
-                            </DockPanel>
-                        </Border>
-                    </Button>
-
                     <Button Background="Transparent" Width="103" BorderThickness="0" Margin="-50 0 0 0" Command="{Binding GoProfileCommand}">
                         <Border Style="{StaticResource HoverableGray}" CornerRadius="25" >
                             <DockPanel Margin="3">
