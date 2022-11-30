@@ -15,6 +15,8 @@
     <None Remove="StaticFiles\img\fakeProfile.png" />
     <None Remove="StaticFiles\img\heart.png" />
     <None Remove="StaticFiles\img\home.png" />
+    <None Remove="StaticFiles\img\icons8-search-client-90.png" />
+    <None Remove="StaticFiles\img\icons8-user-90 %281%29.png" />
     <None Remove="StaticFiles\img\image.png" />
     <None Remove="StaticFiles\img\logo.png" />
     <None Remove="StaticFiles\img\more.png" />
@@ -26,6 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="2.0.9" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.2.5" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
   </ItemGroup>
@@ -38,6 +43,8 @@
     <Resource Include="StaticFiles\img\fakeProfile.png" />
     <Resource Include="StaticFiles\img\heart.png" />
     <Resource Include="StaticFiles\img\home.png" />
+    <Resource Include="StaticFiles\img\icons8-search-client-90.png" />
+    <Resource Include="StaticFiles\img\icons8-user-90 (1).png" />
     <Resource Include="StaticFiles\img\image.png" />
     <Resource Include="StaticFiles\img\logo.png" />
     <Resource Include="StaticFiles\img\more.png" />

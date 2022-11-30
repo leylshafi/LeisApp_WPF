@@ -99,18 +99,24 @@
             </Grid.Resources>
             <ContentControl Content="{Binding CurrentViewModel}" />
         </Grid>
-        <Border Grid.Column="2" BorderThickness="1 0 0 0" BorderBrush="LightCyan">
+        <Border Margin="5 0 0 0" Grid.Column="2" BorderThickness="1 0 0 0" BorderBrush="LightCyan">
             <Canvas>
                 <StackPanel>
-                    <Border BorderThickness="5" Height="40" Width="200" BorderBrush="AliceBlue" Background="LightGray" CornerRadius="18" >
-                        <usercontrols:TextBoxPlaceHolder Text="{Binding Content,Mode=TwoWay}" x:Name="txtbox" Margin="5" PlaceHolderText="Search Twitter" BorderThickness="0" Background="Transparent" />
+                    <StackPanel Orientation="Horizontal">
+                    <Border BorderThickness="5" Height="40" Width="170" BorderBrush="AliceBlue" Background="LightGray" CornerRadius="18" >
+                        <usercontrols:TextBoxPlaceHolder Text="{Binding Content,Mode=TwoWay}" x:Name="txtbox" Margin="3" PlaceHolderText="Search Twitter" BorderThickness="0" Background="Transparent" />
                     </Border>
-                    <Button Width="20" Height="20" Command="{Binding SearchCommand}"></Button>
-                    <ItemsControl Name="itms2" Margin="20" ItemsSource="{Binding SelectedUsers}">
+                    <Button Width="25" Height="25" Command="{Binding SearchCommand}" BorderBrush="{x:Null}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/StaticFiles/img/icons8-search-client-90.png"/>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                    <ItemsControl Name="itms2" Margin="20" ItemsSource="{Binding SelectedUsers}" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Username}"></TextBlock>
+                                    <usercontrols:SearchResultUC Margin="0 6"></usercontrols:SearchResultUC>
                                 </StackPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>

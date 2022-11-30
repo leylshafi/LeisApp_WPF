@@ -20,7 +20,7 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Canvas.Bottom="20" Canvas.Left="120" HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button Width="50" Height="20" CommandParameter="{Binding ElementName=AddTweetPage}" Command="{Binding SendTweetCommand}" Content="Send" FontSize="13" />
+                <Button Width="50" Height="20" CommandParameter="{Binding ElementName=AddTweetPage}" Command="{Binding SendTweetCommand}" Content="Send" FontSize="8" />
                 <!--<Image Source="/StaticFiles/img/image.png" Width="20" />--> 
             </StackPanel>
         </Canvas>

@@ -84,7 +84,9 @@ namespace Source.ViewModels
                 if(item.Username.Contains(search, StringComparison.OrdinalIgnoreCase))
                 {
                     SelectedUsers.Add(item);
-                    username= item.Username;
+                    username = item.Username;
+                    
+                        
                 }
             }
             Content = String.Empty;
