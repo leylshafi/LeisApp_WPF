@@ -5,7 +5,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Source.Views.UserControls" xmlns:viewmodels="clr-namespace:Source.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:HomeViewModel}"
              mc:Ignorable="d" HorizontalAlignment="Stretch" Height="150">
-    <!--<Button Command="{Binding ShowCommand}">-->
     <Canvas>
         <StackPanel Orientation="Horizontal" Canvas.Left="20" Canvas.Top="20">
             <Button Command="{Binding ShowProfileCommand}" Background="Transparent" BorderThickness="0">
@@ -35,5 +34,4 @@
             </StackPanel>
         </StackPanel>
     </Canvas>
-    <!--</Button>-->
 </UserControl>

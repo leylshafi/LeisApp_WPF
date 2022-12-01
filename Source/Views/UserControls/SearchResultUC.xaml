@@ -6,11 +6,12 @@
              xmlns:local="clr-namespace:Source.Views.UserControls" xmlns:viewmodels="clr-namespace:Source.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-
     <Border CornerRadius="20" Background="#FF5193F5">
         <StackPanel Margin="10">
             <StackPanel Orientation="Horizontal">
-                <Image Width="30" Source="/StaticFiles/img/icons8-user-90 (1).png"></Image>
+                <Button Background="Transparent" Command="{Binding ShowUser}">
+                    <Image Width="30" Source="/StaticFiles/img/icons8-user-90 (1).png"></Image>
+                </Button>
                 <TextBlock Foreground="White" FontSize="15" Text="{Binding FirstName}"></TextBlock>
                 <TextBlock Foreground="White" FontSize="15" Margin="5 0" Text="{Binding LastName}"></TextBlock>
             </StackPanel>

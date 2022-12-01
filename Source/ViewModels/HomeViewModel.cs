@@ -90,7 +90,6 @@ namespace Source.ViewModels
                     Tweets[i].ShowCommand = new ShowTweetCommand(Tweets[i]);
                     Tweets[i].ShowProfileCommand = new ShowProfileCommand(Tweets[i].UserId);
                     Tweets[i].LikeCommand = new LikeTweetCommand(Tweets[i].Id, i);
-                    SelectedTweet = Tweets[i];
                 }
 
                 ImagePath = string.Empty;
