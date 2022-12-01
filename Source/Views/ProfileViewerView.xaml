@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Source.Views" xmlns:usercontrols="clr-namespace:Source.Views.UserControls"
         mc:Ignorable="d"
-        Title="ProfileViewerView" Height="450" Width="800">
+        Title="ProfileViewerView" Height="450" Width="800" Background="AliceBlue">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />

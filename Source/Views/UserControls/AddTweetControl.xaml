@@ -25,7 +25,7 @@
                 </Button.Background>
             </Button>
 
-            <Button Style="{StaticResource sgn}" FontSize="13" Margin="65 0" Width="70" Command="{Binding AddCommand}" Background="#FF673AB7" Foreground="White">ADD</Button>
+            <Button Style="{StaticResource sgn}" FontSize="13" Margin="65 0" Width="70" Command="{Binding AddCommand}" Background="#FF5B05F3" Foreground="White">ADD</Button>
            
         </StackPanel>
     </Canvas>

@@ -115,7 +115,7 @@ namespace Source.ViewModels
         private void EditExecuteCommand(object? obj)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "img files (*.img)|*.png|All files (*.*)|*.*";
+            openFileDialog1.Filter = "img files (*.jpg)|(*.png)";
 
             if (openFileDialog1.ShowDialog() == true)
             {

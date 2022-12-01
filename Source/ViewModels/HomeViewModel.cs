@@ -12,20 +12,8 @@ namespace Source.ViewModels
 
     class HomeViewModel : ViewModelBase
     {
-        private string _content;
-
-        public string Content
-        {
-            get => _content;
-            set
-            {
-                _content = value;
-                OnPropertyChanged(nameof(Content));
-            }
-        }
         public static ObservableCollection<Tweet>? Tweets { get; set; }
         public ICommand SetImageCommand { get; set; }
-        public ICommand AddCommand { get; set; }
         public ICommand ShowProfileCommand { get; set; }
 
         public User? User { get; set; }
@@ -95,19 +83,7 @@ namespace Source.ViewModels
 
                 ImagePath = string.Empty;
             }
-            AddCommand = new RelayCommand(AddExecuteCommand);
-        }
-
-
-        private void AddExecuteCommand(object? obj)
-        {
-            Tweets?.Insert(0, new Tweet()
-            {
-                Content = Content,
-                Created = DateTime.Now,
-                User = User,
-            });
-            Content = String.Empty;
+           
         }
     }
 }

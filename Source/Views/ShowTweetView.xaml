@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Source.Views"
         mc:Ignorable="d"
-        Title="ShowTweetView" Height="450" Width="800">
+        Title="ShowTweetView" Height="450" Width="800" Background="AliceBlue">
     <Canvas>
         <StackPanel Orientation="Horizontal" Canvas.Left="20" Canvas.Top="20">
             <Ellipse Height="90" Width="90">
