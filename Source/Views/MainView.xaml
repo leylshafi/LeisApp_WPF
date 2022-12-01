@@ -42,7 +42,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="14*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <Border BorderThickness="0 0 1 0" BorderBrush="LightCyan">
@@ -104,9 +104,9 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                     <Border BorderThickness="5" Height="40" Width="170" BorderBrush="AliceBlue" Background="LightGray" CornerRadius="18" >
-                        <usercontrols:TextBoxPlaceHolder Text="{Binding Content,Mode=TwoWay}" x:Name="txtbox" Margin="3" PlaceHolderText="Search Twitter" BorderThickness="0" Background="Transparent" />
+                        <usercontrols:TextBoxPlaceHolder FontSize="12" Text="{Binding Content,Mode=TwoWay}" x:Name="txtbox" Margin="0 3" PlaceHolderText="Search Twitter" BorderThickness="0" Background="Transparent" />
                     </Border>
-                    <Button Width="25" Height="25" Command="{Binding SearchCommand}" BorderBrush="{x:Null}">
+                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" Width="25" Height="25" Command="{Binding SearchCommand}" BorderBrush="{x:Null}">
                             <Button.Background>
                                 <ImageBrush ImageSource="/StaticFiles/img/icons8-search-client-90.png"/>
                             </Button.Background>

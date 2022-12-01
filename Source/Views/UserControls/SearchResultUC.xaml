@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Border CornerRadius="20" Background="#FF5193F5">
-        <StackPanel Margin="10">
+        <StackPanel Margin="5 10">
             <StackPanel Orientation="Horizontal">
                 <Image Width="30" Source="/StaticFiles/img/icons8-user-90 (1).png"></Image>
                 <TextBlock Foreground="White" FontSize="15" Text="{Binding FirstName}"></TextBlock>

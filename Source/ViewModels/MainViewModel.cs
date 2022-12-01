@@ -77,19 +77,22 @@ namespace Source.ViewModels
         private void ExecuteSearchCommand(object? obj)
         {
             SelectedUsers.Clear();
-            
-            string search = Content;
-            foreach (User item in HomeViewModel.AllUsers)
+            if (Content != null && Content.Length>0)
             {
-                if(item.Username.Contains(search, StringComparison.OrdinalIgnoreCase))
+                string search = Content;
+
+
+                foreach (User item in HomeViewModel.AllUsers)
                 {
-                    SelectedUsers.Add(item);
-                    username = item.Username;
-                    
-                        
+                    if (item.Username.Contains(search, StringComparison.OrdinalIgnoreCase))
+                    {
+                        SelectedUsers.Add(item);
+                        username = item.Username;
+                    }
                 }
+                Content = String.Empty;
             }
-            Content = String.Empty;
+           
 
         }
 
