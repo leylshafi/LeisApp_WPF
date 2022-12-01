@@ -15,6 +15,7 @@
     <None Remove="StaticFiles\img\fakeProfile.png" />
     <None Remove="StaticFiles\img\heart.png" />
     <None Remove="StaticFiles\img\home.png" />
+    <None Remove="StaticFiles\img\icons8-heart-suit-96.png" />
     <None Remove="StaticFiles\img\icons8-search-client-90.png" />
     <None Remove="StaticFiles\img\icons8-sign-out-96.png" />
     <None Remove="StaticFiles\img\icons8-user-90 %281%29.png" />
@@ -44,6 +45,7 @@
     <Resource Include="StaticFiles\img\fakeProfile.png" />
     <Resource Include="StaticFiles\img\heart.png" />
     <Resource Include="StaticFiles\img\home.png" />
+    <Resource Include="StaticFiles\img\icons8-heart-suit-96.png" />
     <Resource Include="StaticFiles\img\icons8-search-client-90.png" />
     <Resource Include="StaticFiles\img\icons8-sign-out-96.png" />
     <Resource Include="StaticFiles\img\icons8-user-90 (1).png" />

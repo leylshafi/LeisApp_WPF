@@ -9,7 +9,7 @@
     <Border CornerRadius="20" Background="#FF5193F5">
         <StackPanel Margin="5 10">
             <StackPanel Orientation="Horizontal">
-                <Button Background="Transparent" Command="{Binding ShowUser}">
+                <Button Background="Transparent" Command="{Binding ShowUser}" Cursor="Hand" BorderBrush="Transparent">
                     <Image Width="30" Source="/StaticFiles/img/icons8-user-90 (1).png"></Image>
                 </Button>
                 <TextBlock Foreground="White" FontSize="15" Text="{Binding FirstName}"></TextBlock>
