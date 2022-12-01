@@ -74,17 +74,29 @@
                         </Border>
                     </Button>
                 </StackPanel>
-
-                <Border Style="{StaticResource HoverableGray}" Width="150" CornerRadius="15" Canvas.Right="15" Canvas.Bottom="5">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Width="45" Source="\StaticFiles\img\fakeProfile.png" />
-                        <StackPanel>
-                            <TextBlock Text="{Binding User.FirstName}" FontWeight="Bold" />
-                            <TextBlock Text="{Binding User.Username}" />
+                <Button Background="Transparent" Margin="58 386" Width="150" BorderThickness="0"  Command="{Binding GoProfileCommand}" Canvas.Right="-55" Canvas.Bottom="-352" Cursor="Hand">
+                    <Border Style="{StaticResource HoverableGray}" Width="150" CornerRadius="15">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="45" Source="\StaticFiles\img\fakeProfile.png" />
+                            <StackPanel>
+                                <TextBlock Text="{Binding User.FirstName}" FontWeight="Bold" />
+                                <TextBlock Text="{Binding User.Username}" />
+                            </StackPanel>
+                            <Image Margin="5 0 0 0" Source="\StaticFiles\img\more.png" Width="15" />
                         </StackPanel>
-                        <Image Margin="5 0 0 0" Source="\StaticFiles\img\more.png" Width="15" />
-                    </StackPanel>
-                </Border>
+                    </Border>
+                </Button>
+
+                <Button Background="Transparent" Width="150" BorderThickness="0"  Command="{Binding CloseCommand}"  Canvas.Right="0" Canvas.Bottom="1" Cursor="Hand">
+                    <Border Style="{StaticResource HoverableGray}" Width="150" CornerRadius="15">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="25" Source="\StaticFiles\img\icons8-sign-out-96.png" />
+                            <TextBlock FontFamily="Bookman Old Style" FontSize="14" VerticalAlignment="Center" Text="Sign out" />
+                        </StackPanel>
+                    </Border>
+                </Button> 
+               
+                
             </Canvas>
         </Border>
 
@@ -103,16 +115,16 @@
             <Canvas>
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
-                    <Border BorderThickness="5" Height="40" Width="170" BorderBrush="AliceBlue" Background="LightGray" CornerRadius="18" >
-                        <usercontrols:TextBoxPlaceHolder FontSize="12" Text="{Binding Content,Mode=TwoWay}" x:Name="txtbox" Margin="0 3" PlaceHolderText="Search Twitter" BorderThickness="0" Background="Transparent" />
-                    </Border>
-                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" Width="25" Height="25" Command="{Binding SearchCommand}" BorderBrush="{x:Null}">
+                        <Border BorderThickness="5" Height="40" Width="170" BorderBrush="AliceBlue" Background="LightGray" CornerRadius="18" >
+                            <usercontrols:TextBoxPlaceHolder FontSize="12" Text="{Binding Content,Mode=TwoWay}" x:Name="txtbox" Margin="0 3" PlaceHolderText="Search Twitter" BorderThickness="0" Background="Transparent" />
+                        </Border>
+                        <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" Width="25" Height="25" Command="{Binding SearchCommand}" BorderBrush="{x:Null}">
                             <Button.Background>
                                 <ImageBrush ImageSource="/StaticFiles/img/icons8-search-client-90.png"/>
                             </Button.Background>
                         </Button>
                     </StackPanel>
-                    <ItemsControl Name="itms2" Margin="20" ItemsSource="{Binding SelectedUsers}" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                    <ItemsControl Name="itms2" Margin="0 20" ItemsSource="{Binding SelectedUsers}" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -122,7 +134,7 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </StackPanel>
-                
+
             </Canvas>
         </Border>
     </Grid>

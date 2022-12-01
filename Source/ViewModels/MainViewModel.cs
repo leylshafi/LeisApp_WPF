@@ -13,6 +13,9 @@ using System.Windows;
 using System.Windows.Input;
 using System.Reflection;
 using System.Collections.ObjectModel;
+using Source.Views;
+using MaterialDesignThemes.Wpf;
+using Source.Views.Abstract;
 
 namespace Source.ViewModels
 {
@@ -52,10 +55,9 @@ namespace Source.ViewModels
 
         public ICommand GoProfileCommand { get; }
         public ICommand GoHomeCommand { get; }
-        public ICommand GoExploreCommand { get; }
-
         public ICommand TweetCommand { get; }
         public ICommand SearchCommand { get; }
+        public GalaSoft.MvvmLight.Command.RelayCommand<IClosable> CloseCommand { get; private set; }
 
         List<User> users;
         public MainViewModel(NavigationStore navigationStore, User user)
@@ -63,7 +65,7 @@ namespace Source.ViewModels
             SelectedUsers = new();
             User = user;
             SyncTweets();
-           
+            
             GoProfileCommand = new NavProfileCommand(navigationStore);
             GoHomeCommand = new NavHomeCommand(navigationStore);
             TweetCommand = new TweetCommand(User);
@@ -72,6 +74,17 @@ namespace Source.ViewModels
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModel = new HomeViewModel();
             _navigationStore.CurrentViewModelChanged += _navigationStore_CurrentViewModelChanged;
+            CloseCommand = new GalaSoft.MvvmLight.Command.RelayCommand<IClosable>(this.CloseWindow);
+        }
+        private void CloseWindow(IClosable obj)
+        {
+            _navigationStore.CurrentViewModel = new MainViewModel(_navigationStore,User);
+            SignUpView mainView = new SignUpView();
+            mainView.DataContext = new SignUpViewModel(_navigationStore);
+            obj?.Close();
+            mainView.Close();
+            mainView.Show();
+            
         }
 
         private void ExecuteSearchCommand(object? obj)
