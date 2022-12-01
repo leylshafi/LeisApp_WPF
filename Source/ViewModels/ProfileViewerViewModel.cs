@@ -82,6 +82,12 @@ namespace Source.ViewModels
                         UserId = User.Id,
                     };
                     User.Followers.Add(follower);
+                    var following = new Following()
+                    {
+                        Fid = User.Id,
+                        UserId = MainViewModel.User.Id,
+                    };
+                    MainViewModel.User.Following.Add(following);
                 }
             }
             else
@@ -92,6 +98,8 @@ namespace Source.ViewModels
                     var follower = User.Followers.Find(f => f.UserId == User.Id);
                     if (follower != null)
                         User.Followers.Remove(follower);
+                    var following = MainViewModel.User.Following.Find(f=>f.Fid == User.Id);
+                    MainViewModel.User.Following.Remove(following);
                 }
             }
             FollowUnFollow();
