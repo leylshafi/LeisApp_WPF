@@ -27,7 +27,7 @@ namespace Source.ViewModels
         {
             get { return _text; }
             set
-            {
+             {
                 _text = value;
                 OnPropertyChanged(nameof(Text));
             }
