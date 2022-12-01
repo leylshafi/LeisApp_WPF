@@ -51,8 +51,6 @@
                         
                     </Button.Resources>
                 </Button>
-                <TextBlock Text="Azerbaijan" FontSize="12" Canvas.Top="52" Canvas.Right="15" Foreground="LightSlateGray" />
-                <TextBlock Text="Born December 8, 2003" FontSize="12" Canvas.Top="67" Canvas.Right="15" Foreground="LightSlateGray" />
 
                 <TextBlock Text="{Binding User.FirstName}" FontSize="18" Canvas.Top="30" Canvas.Left="15" />
                 <TextBlock Text="{Binding User.Username}" FontSize="12" Canvas.Top="52" Canvas.Left="15" Foreground="LightSlateGray" />
@@ -70,11 +68,7 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource prfl}" Grid.Column="0" Content="Tweets" FontSize="15" FontWeight="DemiBold" Background="Transparent" BorderThickness="0 0 0 2" BorderBrush="Orange" Cursor="Hand"/>
-            <Button Style="{StaticResource prfl}" Grid.Column="1" Content="Tweet and Replies" FontSize="15" FontWeight="DemiBold" Background="Transparent" BorderThickness="0 0 0 2" BorderBrush="Orange" Cursor="Hand" />
-            <Button Style="{StaticResource prfl}" Grid.Column="2" Content="Media" FontSize="15" FontWeight="DemiBold" Background="Transparent" BorderThickness="0 0 0 2" BorderBrush="Orange" Cursor="Hand" />
-            <Button Style="{StaticResource prfl}" Grid.Column="3" Content="Likes" FontSize="15" FontWeight="DemiBold" Background="Transparent" BorderThickness="0 0 0 2" BorderBrush="Orange" Cursor="Hand" />
-            
+
         </Grid>
         <ScrollViewer Grid.Row="3" Name="scrl" VerticalScrollBarVisibility="Auto">
             <StackPanel>

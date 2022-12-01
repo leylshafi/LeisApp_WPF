@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -33,8 +35,8 @@ namespace Source.ViewModels
                 OnPropertyChanged(nameof(Username));
             }
         }
-        private string _password;
-        public string Password
+        private SecureString _password;
+        public SecureString Password
         {
             get => _password;
             set
@@ -86,7 +88,7 @@ namespace Source.ViewModels
 
             _user = new();
             _user.Username = Username;
-            _user.Password = Password;
+            _user.Password = SecureStringToString(Password);
             _user.FirstName = Name;
             _user.LastName = Surname;
 
@@ -99,6 +101,20 @@ namespace Source.ViewModels
                 SignInWindow(obj);
             }
 
+        }
+
+        private string SecureStringToString(SecureString value)
+        {
+            IntPtr valuePtr = IntPtr.Zero;
+            try
+            {
+                valuePtr = Marshal.SecureStringToGlobalAllocUnicode(value);
+                return Marshal.PtrToStringUni(valuePtr);
+            }
+            finally
+            {
+                Marshal.ZeroFreeGlobalAllocUnicode(valuePtr);
+            }
         }
 
         private void SignInWindow(IClosable obj)

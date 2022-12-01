@@ -34,8 +34,6 @@
                         <ImageBrush ImageSource="{Binding ImagePath}" Stretch="UniformToFill" />
                     </Ellipse.Fill>
                 </Ellipse>
-                <TextBlock Text="Azerbaijan" FontSize="12" Canvas.Top="52" Canvas.Right="15" Foreground="LightSlateGray" />
-                <TextBlock Text="Born December 8, 2003" FontSize="12" Canvas.Top="67" Canvas.Right="15" Foreground="LightSlateGray" />
 
                 <TextBlock Text="{Binding User.FirstName}" FontSize="18" Canvas.Top="30" Canvas.Left="15" />
                 <TextBlock Text="{Binding User.Username}" FontSize="12" Canvas.Top="52" Canvas.Left="15" Foreground="LightSlateGray" />
