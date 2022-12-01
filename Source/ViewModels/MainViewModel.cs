@@ -87,7 +87,6 @@ namespace Source.ViewModels
             {
                 obj.Close();
             }
-            //TODO 
         }
 
         private void ExecuteSearchCommand(object? obj)

@@ -16,6 +16,7 @@ namespace Source.Models
 
         public ICommand? ShowCommand { get; set; }
         public ICommand? ShowProfileCommand { get; set; }
+        public ICommand? LikeTweetCommand { get; set; }
 
         public Brush? ForeColor { get; set; }
 

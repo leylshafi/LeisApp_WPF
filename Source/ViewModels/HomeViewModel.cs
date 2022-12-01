@@ -20,20 +20,6 @@ namespace Source.ViewModels
         public List<Tweet>? UserTweets { get; set; }
         public static List<User>? AllUsers { get; set; }
 
-
-
-        private Tweet? _tweet;
-
-        public Tweet? SelectedTweet
-        {
-            get { return _tweet; }
-            set
-            {
-                _tweet = value;
-                OnPropertyChanged(nameof(SelectedTweet));
-            }
-        }
-
         private string? _imagePath;
 
         public string? ImagePath
@@ -51,7 +37,6 @@ namespace Source.ViewModels
         public HomeViewModel()
         {
             Load();
-           
         }
 
         private void Load()
@@ -85,6 +70,7 @@ namespace Source.ViewModels
                     Tweets.Add(UserTweets[i]);
                     Tweets[i].ShowCommand = new ShowTweetCommand(Tweets[i]);
                     Tweets[i].ShowProfileCommand = new ShowProfileCommand(Tweets[i].UserId);
+                    Tweets[i].LikeTweetCommand = new LikeTweetCommand(Tweets[i].Id,i);
                 }
 
                 ImagePath = string.Empty;
