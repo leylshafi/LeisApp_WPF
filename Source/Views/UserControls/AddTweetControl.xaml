@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Source.Views.UserControls" xmlns:viewmodels="clr-namespace:Source.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:HomeViewModel}"
+             xmlns:local="clr-namespace:Source.Views.UserControls" xmlns:viewmodels="clr-namespace:Source.ViewModels" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" d:DataContext="{d:DesignInstance Type=viewmodels:ProfileViewModel}"
              mc:Ignorable="d" 
              
              Height="150" HorizontalAlignment="Stretch">
@@ -19,12 +19,13 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Canvas.Bottom="20" Canvas.Left="120" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button  Width="20" Height="20" Command="{Binding SetImageCommand}">
+            <Button  Width="20" Height="20">
                 <Button.Background>
                     <ImageBrush ImageSource="/StaticFiles/img/image.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button Margin="65 0" Width="30" Command="{Binding AddCommand}">ADD</Button>
+
+            <Button Style="{StaticResource sgn}" FontSize="13" Margin="65 0" Width="70" Command="{Binding AddCommand}" Background="#FF5B05F3" Foreground="White">ADD</Button>
            
         </StackPanel>
     </Canvas>

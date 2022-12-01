@@ -28,12 +28,9 @@ namespace Source.ViewModels
             {
                 _content = value;
                 OnPropertyChanged(nameof(Content));
+
             }
         }
-
-
-
-
 
         public RelayCommand<IClosable> SendTweetCommand { get; private set; }
 
@@ -58,6 +55,7 @@ namespace Source.ViewModels
                 if (ProfileViewModel.Tweets != null)
                 {
                     ProfileViewModel.Tweets.Add(MainViewModel.UserTweets.Last());
+
                 }
                 else
                 {

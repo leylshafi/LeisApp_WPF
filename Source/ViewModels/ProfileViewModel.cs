@@ -4,6 +4,7 @@ using Source.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -57,6 +58,20 @@ namespace Source.ViewModels
             }
         }
 
+        private string _content;
+
+        public string Content
+        {
+            get => _content;
+            set
+            {
+
+                _content = value;
+                OnPropertyChanged(nameof(Content));
+
+            }
+        }
+        public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ProfileViewModel()
         {
@@ -76,6 +91,23 @@ namespace Source.ViewModels
             ImagePath = "StaticFiles/img/user.png";
             BackgroundPath = "StaticFiles/img/background.png";
             EditCommand = new RelayCommand(EditExecuteCommand, EditCanExecuteCommand);
+            AddCommand = new RelayCommand(AddExecuteCommand);
+            
+            
+        }
+        private void AddExecuteCommand(object? obj)
+        {
+            if (Content !=null && Content.Length>0 )
+            {
+                Tweets?.Insert(0, new Tweet()
+                {
+                    Content = Content,
+                    Created = DateTime.Now,
+                    User = User,
+                });
+
+                Content = String.Empty;
+            }
         }
 
         private bool EditCanExecuteCommand(object? obj) => true;
@@ -92,9 +124,9 @@ namespace Source.ViewModels
                 StreamReader sr = new StreamReader(filePath);
                 ImagePath = filePath;
                 User.ProfilePicture = filePath;
-               
+
             }
-           var result= MessageBox.Show("Do you want to add background image?","Question",MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var result = MessageBox.Show("Do you want to add background image?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
                 if (openFileDialog1.ShowDialog() == true)

@@ -77,10 +77,10 @@ namespace Source.ViewModels
         private void ExecuteSearchCommand(object? obj)
         {
             SelectedUsers.Clear();
-
-            string search = Content;
-            if (search != null)
+            if (Content != null && Content.Length>0)
             {
+                string search = Content;
+
 
                 for (int i = 0; i < HomeViewModel.AllUsers.Count; i++)
                 {
@@ -91,8 +91,9 @@ namespace Source.ViewModels
                         SelectedUsers[i].ShowUser = new ShowProfileCommand(HomeViewModel.AllUsers[i].Id);
                     }
                 }
-                Content = string.Empty;
+                Content = String.Empty;
             }
+
 
         }
 

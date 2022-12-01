@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Border CornerRadius="20" Background="#FF5193F5">
-        <StackPanel Margin="10">
+        <StackPanel Margin="5 10">
             <StackPanel Orientation="Horizontal">
                 <Button Background="Transparent" Command="{Binding ShowUser}">
                     <Image Width="30" Source="/StaticFiles/img/icons8-user-90 (1).png"></Image>

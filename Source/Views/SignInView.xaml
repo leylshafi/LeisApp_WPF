@@ -18,7 +18,7 @@
         <Grid Grid.Column="1">
             <StackPanel>
                 <Label Margin="70 30" FontSize="40" Foreground="White" FontFamily="Bookman Old Style">Sign in</Label>
-                <usercontrols:TextBoxPlaceHolder x:Name="uc" PlaceHolderText="Username" Text="{Binding Username, Mode=TwoWay}" FontSize="15" Margin="50 0" MaxLength="10"></usercontrols:TextBoxPlaceHolder>
+                <usercontrols:TextBoxPlaceHolder x:Name="uc" PlaceHolderText="Username" Text="{Binding Username, Mode=TwoWay}" FontSize="15" Margin="50 0" MaxLength="20"></usercontrols:TextBoxPlaceHolder>
                 <Label Margin="50 15 0 0" FontFamily="Bookman Old Style" FontSize="15" Foreground="DarkBlue">Password:</Label>
                 <TextBox Text="{Binding Password,Mode=TwoWay}" Width="{Binding ElementName=uc, Path=Width}" Margin="50 0" Background="Transparent"  ></TextBox>
                 <CheckBox Margin="50 5" Content="Remember me" FontFamily="Bookman Old Style" FontSize="13"></CheckBox>
