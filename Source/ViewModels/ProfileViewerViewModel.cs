@@ -12,13 +12,12 @@ using Source.Models;
 using Source.Commands;
 using Source.Views.Abstract;
 using System.Net.Http;
+using System.Windows.Media;
 
 namespace Source.ViewModels
 {
     class ProfileViewerViewModel : ViewModelBase
     {
-
-         
         public static User User { get; set; }
         public List<Tweet> UserTweets { get; set; }
         public static ObservableCollection<Tweet>? Tweets { get; set; }
@@ -45,7 +44,6 @@ namespace Source.ViewModels
                 OnPropertyChanged(nameof(SelectedTweet));
             }
         }
-
         public GalaSoft.MvvmLight.Command.RelayCommand<IClosable> FollowCommand { get; set; }
         public ProfileViewerViewModel(User user)
         {
@@ -63,9 +61,11 @@ namespace Source.ViewModels
                 {
                     Tweets.Add(UserTweets[i]);
                     SelectedTweet = Tweets[i];
+                    SelectedTweet.ForeColor = Brushes.White;
                 }
             }
         }
+
 
         private async void FollowSubmit(IClosable obj)
         {

@@ -10,8 +10,11 @@ using Source.Models;
 using server.Models.Dtos;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Windows;
+using System.Windows.Media;
 using System.Security;
 using System.Runtime.InteropServices;
+
 
 namespace Source.ViewModels
 {
@@ -39,6 +42,17 @@ namespace Source.ViewModels
             }
         }
 
+        private Brush _foregroundColor;
+        public Brush foregroundColor
+        {
+            get => _foregroundColor;
+            set
+            {
+                _foregroundColor = value;
+                OnPropertyChanged(nameof(foregroundColor));
+            }
+        }
+        
 
 
 
@@ -50,6 +64,8 @@ namespace Source.ViewModels
 
         public SignInViewModel(NavigationStore navigationStore)
         {
+            foregroundColor = Brushes.Transparent; 
+            //_foregroundColor=Brushes.Transparent;
             _navigationStore = navigationStore;
             SignUpCommand = new GalaSoft.MvvmLight.Command.RelayCommand<IClosable>(this.SignUpWindow);
             SubmitCommand = new GalaSoft.MvvmLight.Command.RelayCommand<IClosable>(this.SignInSumbit);
@@ -81,6 +97,10 @@ namespace Source.ViewModels
                     obj.Close();
                 }
                 mainView.Show();
+            }
+            else
+            {
+                foregroundColor = Brushes.Blue;
             }
         }
 

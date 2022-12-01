@@ -28,6 +28,7 @@
                     <Label FontSize="15" >You aren't a member?</Label>
                     <Button Command="{Binding SignUpCommand}" CommandParameter="{Binding ElementName=SignIn}" FontSize="15" Width="100" Background="Transparent" BorderBrush="Transparent" FontStyle="Italic" Foreground="DarkBlue">Sign Up</Button>
             </StackPanel>
+                <Label Margin="50 10" FontSize="14" FontFamily="Bookman Old Style" Foreground="{Binding foregroundColor}">Incorrect Username or Password</Label>
             </StackPanel>
         </Grid>
     </Grid>

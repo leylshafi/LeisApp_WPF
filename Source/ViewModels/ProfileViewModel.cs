@@ -11,11 +11,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Source.ViewModels
 {
     class ProfileViewModel : ViewModelBase
     {
+        private Brush? _foreColor;
+
+        public Brush? ForeColor
+        {
+            get { return _foreColor; }
+            set
+            {
+                _foreColor = value;
+                OnPropertyChanged(nameof(ForeColor));
+            }
+        }
+
         private string? _imagePath;
 
         public string? ImagePath
@@ -28,7 +41,6 @@ namespace Source.ViewModels
             }
         }
 
-
         private string? _backgroundPath;
 
         public string? BackgroundPath
@@ -40,6 +52,7 @@ namespace Source.ViewModels
                 OnPropertyChanged(nameof(BackgroundPath));
             }
         }
+
 
         public User User { get; set; }
         public List<Tweet> UserTweets { get; set; }
@@ -92,9 +105,9 @@ namespace Source.ViewModels
             BackgroundPath = "StaticFiles/img/background.png";
             EditCommand = new RelayCommand(EditExecuteCommand, EditCanExecuteCommand);
             AddCommand = new RelayCommand(AddExecuteCommand);
-            
-            
         }
+
+
         private void AddExecuteCommand(object? obj)
         {
             if (Content !=null && Content.Length>0 )

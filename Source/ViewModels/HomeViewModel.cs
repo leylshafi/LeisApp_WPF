@@ -85,7 +85,6 @@ namespace Source.ViewModels
                     Tweets.Add(UserTweets[i]);
                     Tweets[i].ShowCommand = new ShowTweetCommand(Tweets[i]);
                     Tweets[i].ShowProfileCommand = new ShowProfileCommand(Tweets[i].UserId);
-                    Tweets[i].LikeCommand = new LikeTweetCommand(Tweets[i].Id, i);
                 }
 
                 ImagePath = string.Empty;
