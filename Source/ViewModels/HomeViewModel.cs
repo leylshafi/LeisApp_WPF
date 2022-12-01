@@ -46,13 +46,21 @@ namespace Source.ViewModels
             }
         }
 
+        public ICommand ReloadCommand { get; set; }
+
         public HomeViewModel()
+        {
+            Load();
+           
+        }
+
+        private void Load()
         {
             User = MainViewModel.User;
             AllUsers = MainViewModel.AllUsers;
             UserTweets = new();
             var exUser = new User();
-
+            ReloadCommand = new GalaSoft.MvvmLight.Command.RelayCommand(this.ReloadMethod);
 
             if (User != null)
             {
@@ -82,7 +90,11 @@ namespace Source.ViewModels
 
                 ImagePath = string.Empty;
             }
-           
+        }
+
+        private void ReloadMethod()
+        {
+            Load();
         }
     }
 }

@@ -55,7 +55,6 @@ namespace Source.ViewModels
                 if (ProfileViewModel.Tweets != null)
                 {
                     ProfileViewModel.Tweets.Add(MainViewModel.UserTweets.Last());
-
                 }
                 else
                 {

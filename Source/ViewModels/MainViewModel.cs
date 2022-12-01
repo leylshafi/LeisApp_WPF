@@ -80,7 +80,7 @@ namespace Source.ViewModels
             if (Content != null && Content.Length>0)
             {
                 string search = Content;
-
+                int k = 0;
 
                 for (int i = 0; i < HomeViewModel.AllUsers.Count; i++)
                 {
@@ -88,7 +88,8 @@ namespace Source.ViewModels
                     {
                         SelectedUsers.Add(HomeViewModel.AllUsers[i]);
                         username = HomeViewModel.AllUsers[i].Username;
-                        SelectedUsers[i].ShowUser = new ShowProfileCommand(HomeViewModel.AllUsers[i].Id);
+                        SelectedUsers[k].ShowUser = new ShowProfileCommand(HomeViewModel.AllUsers[i].Id);
+                        k++;
                     }
                 }
                 Content = String.Empty;
