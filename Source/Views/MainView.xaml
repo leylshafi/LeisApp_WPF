@@ -6,6 +6,7 @@
         xmlns:usercontrols="clr-namespace:Source.Views.UserControls" xmlns:views="clr-namespace:Source.Views"
         xmlns:vms="clr-namespace:Source.ViewModels" d:DataContext="{d:DesignInstance Type=vms:MainViewModel}"
         mc:Ignorable="d"
+        x:Name="main"
         MinHeight="450" MinWidth="1000"
         Title="Twitter" Height="450" Width="1000" Icon="/StaticFiles/img/twitterLogo.png"  WindowStartupLocation="CenterScreen" Background="AliceBlue">
     <Window.Resources>
@@ -87,7 +88,7 @@
                     </Border>
                 </Button>
 
-                <Button Background="Transparent" Width="150" BorderThickness="0"  Command="{Binding CloseCommand}"  Canvas.Right="0" Canvas.Bottom="1" Cursor="Hand">
+                <Button Background="Transparent" Width="150" BorderThickness="0"  Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=main}"  Canvas.Right="0" Canvas.Bottom="1" Cursor="Hand">
                     <Border Style="{StaticResource HoverableGray}" Width="150" CornerRadius="15">
                         <StackPanel Orientation="Horizontal">
                             <Image Width="25" Source="\StaticFiles\img\icons8-sign-out-96.png" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Source.Views.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace Source.Views
     /// <summary>
     /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class MainView : Window
+    public partial class MainView : Window,IClosable
     {
         public MainView()
         {
