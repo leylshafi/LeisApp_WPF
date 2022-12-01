@@ -12,6 +12,9 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Windows;
 using System.Windows.Media;
+using System.Security;
+using System.Runtime.InteropServices;
+
 
 namespace Source.ViewModels
 {
@@ -28,8 +31,8 @@ namespace Source.ViewModels
                 OnPropertyChanged(nameof(Username));
             }
         }
-        private string _password;
-        public string Password
+        private SecureString _password;
+        public SecureString Password
         {
             get => _password;
             set
@@ -75,7 +78,7 @@ namespace Source.ViewModels
             HttpClient client = new HttpClient();
             _user = new();
             _user.Username = Username;
-            _user.Password = Password;
+            _user.Password = SecureStringToString(Password);
             _user.FirstName = string.Empty;
             _user.LastName = string.Empty;
 
@@ -98,6 +101,20 @@ namespace Source.ViewModels
             else
             {
                 foregroundColor = Brushes.Blue;
+            }
+        }
+
+        private string SecureStringToString(SecureString value)
+        {
+            IntPtr valuePtr = IntPtr.Zero;
+            try
+            {
+                valuePtr = Marshal.SecureStringToGlobalAllocUnicode(value);
+                return Marshal.PtrToStringUni(valuePtr);
+            }
+            finally
+            {
+                Marshal.ZeroFreeGlobalAllocUnicode(valuePtr);
             }
         }
 

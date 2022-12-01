@@ -20,10 +20,11 @@
                 <Label Margin="70 30" FontSize="40" Foreground="White" FontFamily="Bookman Old Style">Sign in</Label>
                 <usercontrols:TextBoxPlaceHolder x:Name="uc" PlaceHolderText="Username" Text="{Binding Username, Mode=TwoWay}" FontSize="15" Margin="50 0" MaxLength="20"></usercontrols:TextBoxPlaceHolder>
                 <Label Margin="50 15 0 0" FontFamily="Bookman Old Style" FontSize="15" Foreground="DarkBlue">Password:</Label>
-                <TextBox Text="{Binding Password,Mode=TwoWay}" Width="{Binding ElementName=uc, Path=Width}" Margin="50 0" Background="Transparent"  ></TextBox>
+                <!--<TextBox Text="{Binding Password,Mode=TwoWay}" Width="{Binding ElementName=uc, Path=Width}" Margin="50 0" Background="Transparent"  ></TextBox>-->
+                <usercontrols:BindablePasswordBox Margin="50 0" Password="{Binding Password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="28" />
                 <CheckBox Margin="50 5" Content="Remember me" FontFamily="Bookman Old Style" FontSize="13"></CheckBox>
                 <Button Style="{StaticResource sgn}" Command="{Binding SubmitCommand}" CommandParameter="{Binding ElementName=SignIn}" Width="300" Content="Sign in" FontSize="20" Margin="0 5" Background="DodgerBlue" Foreground="WhiteSmoke" FontFamily="Bookman Old Style"></Button>
-                <StackPanel Orientation="Horizontal" Margin="50 0"  >
+                <StackPanel Orientation="Horizontal" Margin="50 0">
                     <Label FontSize="15" >You aren't a member?</Label>
                     <Button Command="{Binding SignUpCommand}" CommandParameter="{Binding ElementName=SignIn}" FontSize="15" Width="100" Background="Transparent" BorderBrush="Transparent" FontStyle="Italic" Foreground="DarkBlue">Sign Up</Button>
             </StackPanel>
