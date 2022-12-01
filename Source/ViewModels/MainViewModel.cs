@@ -65,7 +65,7 @@ namespace Source.ViewModels
             SelectedUsers = new();
             User = user;
             SyncTweets();
-            
+           
             GoProfileCommand = new NavProfileCommand(navigationStore);
             GoHomeCommand = new NavHomeCommand(navigationStore);
             TweetCommand = new TweetCommand(User);
@@ -89,27 +89,28 @@ namespace Source.ViewModels
                 string search = Content;
 
 
-                foreach (User item in HomeViewModel.AllUsers)
+                for (int i = 0; i < HomeViewModel.AllUsers.Count; i++)
                 {
-                    if (item.Username.Contains(search, StringComparison.OrdinalIgnoreCase))
+                    if (HomeViewModel.AllUsers[i].Username.Contains(search, StringComparison.OrdinalIgnoreCase))
                     {
-                        SelectedUsers.Add(item);
-                        username = item.Username;
+                        SelectedUsers.Add(HomeViewModel.AllUsers[i]);
+                        username = HomeViewModel.AllUsers[i].Username;
+                        SelectedUsers[i].ShowUser = new ShowProfileCommand(HomeViewModel.AllUsers[i].Id);
                     }
                 }
                 Content = String.Empty;
             }
-           
+
 
         }
 
         public async static void SyncTweets()
         {
-            HttpClient client= new HttpClient();
+            HttpClient client = new HttpClient();
             string usersString = client.GetStringAsync("https://localhost:7143/api/Users").Result;
             AllUsers = JsonConvert.DeserializeObject<List<User>>(usersString);
             UserTweets = new();
-            var user = AllUsers.FirstOrDefault(u=>u.Id==User.Id);
+            var user = AllUsers.FirstOrDefault(u => u.Id == User.Id);
             foreach (var tweet in user.Tweets)
             {
                 tweet.User = User;

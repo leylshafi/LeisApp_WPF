@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace Source.Models;
 
@@ -14,6 +15,7 @@ public class User
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
     public string? Bio { get; set; }
+    public ICommand ShowUser { get; set; }
     public DateTime BirthDate { get; set; }
     public List<Tweet>? Tweets { get; set; }
     public List<Following>? Following { get; set; }
