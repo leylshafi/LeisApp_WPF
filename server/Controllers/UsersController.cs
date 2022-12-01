@@ -219,13 +219,13 @@ namespace server.Controllers
 
         public async Task<ActionResult> Follow(int userId,int followId)
         {
-            var newFollower = new Follower
+            var newFollowing = new Following
             {
                 Fid = followId,
                 UserId= userId,
             };
 
-            var newFollowing = new Following
+            var newFollower = new Follower
             {
                 Fid = userId,
                 UserId = followId,
@@ -233,6 +233,21 @@ namespace server.Controllers
 
             await _context.Followers.AddAsync(newFollower);
             await _context.Following.AddAsync(newFollowing);
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpDelete("deletefollow")]
+        public async Task<ActionResult> UnFollow(int userId,int followId)
+        {
+            var following = await _context.Following.FirstOrDefaultAsync(f=>f.UserId== userId&&f.Fid==followId);
+            var follower = await _context.Followers.FirstOrDefaultAsync(f=>f.UserId== followId&&f.Fid==userId);
+            if (follower is null)
+                return NotFound();
+
+            _context.Followers.Remove(follower);
+            _context.Following.Remove(following);
             await _context.SaveChangesAsync();
 
             return Ok();

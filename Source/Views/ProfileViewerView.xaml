@@ -14,6 +14,10 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
+        <Grid Grid.Row="2">
+            <Button Command="{Binding FollowCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Text,Mode=TwoWay}" />
+        </Grid>
+
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="{Binding User.FirstName}" FontSize="18" FontWeight="Bold" />
