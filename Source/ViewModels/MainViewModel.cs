@@ -78,13 +78,7 @@ namespace Source.ViewModels
         }
         private void CloseWindow(IClosable obj)
         {
-            _navigationStore.CurrentViewModel = new MainViewModel(_navigationStore,User);
-            SignUpView mainView = new SignUpView();
-            mainView.DataContext = new SignUpViewModel(_navigationStore);
-            obj?.Close();
-            mainView.Close();
-            mainView.Show();
-            
+            //TODO 
         }
 
         private void ExecuteSearchCommand(object? obj)
