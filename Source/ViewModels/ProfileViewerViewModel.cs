@@ -17,6 +17,8 @@ namespace Source.ViewModels
 {
     class ProfileViewerViewModel : ViewModelBase
     {
+
+         
         public static User User { get; set; }
         public List<Tweet> UserTweets { get; set; }
         public static ObservableCollection<Tweet>? Tweets { get; set; }

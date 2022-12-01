@@ -95,15 +95,9 @@ namespace Source.ViewModels
 
                 ImagePath = string.Empty;
             }
-            AddCommand = new RelayCommand(AddExecuteCommand, AddCanExecuteCommand);
+            AddCommand = new RelayCommand(AddExecuteCommand);
         }
 
-
-
-        private bool AddCanExecuteCommand(object? obj)
-        {
-            return true;
-        }
 
         private void AddExecuteCommand(object? obj)
         {
@@ -114,7 +108,6 @@ namespace Source.ViewModels
                 User = User,
             });
             Content = String.Empty;
-
         }
     }
 }

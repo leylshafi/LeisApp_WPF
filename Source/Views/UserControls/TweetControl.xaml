@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Source.Views.UserControls" xmlns:viewmodels="clr-namespace:Source.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:HomeViewModel}"
              mc:Ignorable="d" HorizontalAlignment="Stretch" Height="150">
-    <!--<Button Command="{Binding ShowCommand}">-->
+    
     <Canvas>
         <StackPanel Orientation="Horizontal" Canvas.Left="20" Canvas.Top="20">
             <Button Command="{Binding ShowProfileCommand}" Background="Transparent" BorderThickness="0">
@@ -17,19 +17,20 @@
             </Button>
             <StackPanel Orientation="Horizontal">
                 <TextBlock FontWeight="Bold" Text="{Binding User.FirstName}" Margin="5" />
+                <TextBlock Text="{Binding User.LastName}" Margin="5"/>
                 <TextBlock Text="{Binding User.Username}" Margin="5"/>
-                <TextBlock Text="{Binding Created}" Margin="5"/>
             </StackPanel>
         </StackPanel>
-        <Button Background="Transparent" BorderThickness="0" Command="{Binding ShowCommand}" Canvas.Right="15" Canvas.Top="22">
+        <Button Background="Transparent" BorderThickness="0" Command="{Binding ShowProfileCommand}" Canvas.Right="15" Canvas.Top="22">
             <Image Height="25" Source="/StaticFiles/img/more.png" Stretch="UniformToFill" />
         </Button>
         <TextBlock Text="{Binding Content}" Canvas.Left="115" Canvas.Top="50" />
         <StackPanel Canvas.Bottom="0" Canvas.Left="110" Orientation="Horizontal">
             <Image Source="/StaticFiles/img/comments.png" Margin="0 5 25 5" />
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding LikesCount, Mode=TwoWay}" />
-                <Button Background="Transparent" BorderThickness="0" Command="{Binding LikeCommand}" Canvas.Right="15" Canvas.Top="22">
+                <!--<TextBlock Text="{Binding LikesCount, Mode=TwoWay}" />-->
+                <!--Command="{Binding LikeCommand}"-->
+                <Button Background="Transparent" BorderThickness="0"  Canvas.Right="15" Canvas.Top="22">
                     <Image Source="/StaticFiles/img/heart.png" Margin="0 5 25 5" />
                 </Button>
             </StackPanel>
