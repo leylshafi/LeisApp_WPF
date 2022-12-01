@@ -79,16 +79,20 @@ namespace Source.ViewModels
             SelectedUsers.Clear();
 
             string search = Content;
-            for (int i = 0; i < HomeViewModel.AllUsers.Count; i++)
+            if (search != null)
             {
-                if (HomeViewModel.AllUsers[i].Username.Contains(search, StringComparison.OrdinalIgnoreCase))
+
+                for (int i = 0; i < HomeViewModel.AllUsers.Count; i++)
                 {
-                    SelectedUsers.Add(HomeViewModel.AllUsers[i]);
-                    username = HomeViewModel.AllUsers[i].Username;
-                    SelectedUsers[i].ShowUser = new ShowProfileCommand(HomeViewModel.AllUsers[i].Id);
+                    if (HomeViewModel.AllUsers[i].Username.Contains(search, StringComparison.OrdinalIgnoreCase))
+                    {
+                        SelectedUsers.Add(HomeViewModel.AllUsers[i]);
+                        username = HomeViewModel.AllUsers[i].Username;
+                        SelectedUsers[i].ShowUser = new ShowProfileCommand(HomeViewModel.AllUsers[i].Id);
+                    }
                 }
+                Content = string.Empty;
             }
-            Content = string.Empty;
 
         }
 
