@@ -57,6 +57,7 @@ namespace Source.ViewModels
         public ICommand GoHomeCommand { get; }
         public ICommand TweetCommand { get; }
         public ICommand SearchCommand { get; }
+        
         public GalaSoft.MvvmLight.Command.RelayCommand<IClosable> CloseCommand { get; private set; }
 
         List<User> users;
@@ -78,6 +79,14 @@ namespace Source.ViewModels
         }
         private void CloseWindow(IClosable obj)
         {
+            _navigationStore.CurrentViewModel = new SignUpViewModel(_navigationStore);
+            SignUpView mainView = new SignUpView();
+            mainView.DataContext = new SignUpViewModel(_navigationStore);
+            mainView.Show();
+            if (obj != null)
+            {
+                obj.Close();
+            }
             //TODO 
         }
 
