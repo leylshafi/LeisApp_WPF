@@ -14,7 +14,7 @@ namespace Source.Commands
     class ExampleCommand : CommandBase
     {
         private readonly NavigationStore _navigationStore;
-        private readonly Action<object> _execute;
+        //private readonly Action<object> _execute;
         public ExampleCommand(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
