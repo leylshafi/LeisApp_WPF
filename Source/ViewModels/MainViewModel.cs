@@ -57,10 +57,8 @@ namespace Source.ViewModels
         public ICommand GoHomeCommand { get; }
         public ICommand TweetCommand { get; }
         public ICommand SearchCommand { get; }
-        
         public GalaSoft.MvvmLight.Command.RelayCommand<IClosable> CloseCommand { get; private set; }
-
-        List<User> users;
+        
         public MainViewModel(NavigationStore navigationStore, User user)
         {
             SelectedUsers = new();
@@ -99,7 +97,7 @@ namespace Source.ViewModels
 
                 for (int i = 0; i < HomeViewModel.AllUsers.Count; i++)
                 {
-                    if (HomeViewModel.AllUsers[i].Username.Contains(search, StringComparison.OrdinalIgnoreCase))
+                    if (HomeViewModel.AllUsers[i].Username.Contains(search, StringComparison.OrdinalIgnoreCase) && HomeViewModel.AllUsers[i].Username!=MainViewModel.User.Username)
                     {
                         SelectedUsers.Add(HomeViewModel.AllUsers[i]);
                         username = HomeViewModel.AllUsers[i].Username;
