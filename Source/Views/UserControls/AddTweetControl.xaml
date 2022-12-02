@@ -5,7 +5,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Source.Views.UserControls" xmlns:viewmodels="clr-namespace:Source.ViewModels" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" d:DataContext="{d:DesignInstance Type=viewmodels:ProfileViewModel}"
              mc:Ignorable="d" 
-             
              Height="150" HorizontalAlignment="Stretch">
     <Canvas>
         <StackPanel Canvas.Left="20" Canvas.Top="20">
@@ -20,7 +19,6 @@
         </StackPanel>
         <StackPanel Canvas.Bottom="20" Canvas.Left="120" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Style="{StaticResource sgn}" FontSize="13" Width="70" Command="{Binding AddCommand}" Background="#FF5B05F3" Foreground="White">ADD</Button>
-           
         </StackPanel>
     </Canvas>
 </UserControl>
