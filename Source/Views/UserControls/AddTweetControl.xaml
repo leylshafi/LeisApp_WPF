@@ -19,13 +19,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Canvas.Bottom="20" Canvas.Left="120" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button  Width="20" Height="20">
-                <Button.Background>
-                    <ImageBrush ImageSource="/StaticFiles/img/image.png" Stretch="Uniform"/>
-                </Button.Background>
-            </Button>
-
-            <Button Style="{StaticResource sgn}" FontSize="13" Margin="65 0" Width="70" Command="{Binding AddCommand}" Background="#FF5B05F3" Foreground="White">ADD</Button>
+            <Button Style="{StaticResource sgn}" FontSize="13" Width="70" Command="{Binding AddCommand}" Background="#FF5B05F3" Foreground="White">ADD</Button>
            
         </StackPanel>
     </Canvas>
