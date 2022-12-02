@@ -20,9 +20,19 @@
             </StackPanel>
         </StackPanel>
         <TextBlock Text="{Binding Tweet.Content}" Canvas.Left="115" Canvas.Top="50" />
-        <StackPanel Canvas.Top="150" Canvas.Left="110" Orientation="Horizontal">
-            <Button Command="{Binding Tweet.LikeTweetCommand}" BorderThickness="0" Background="Transparent">
-                <Image Source="/StaticFiles/img/heart.png" Margin="0 5 25 5" />
+        <StackPanel Canvas.Top="100" Canvas.Left="110" Orientation="Horizontal">
+            <Button Cursor="Hand" BorderBrush="Transparent" Foreground="Black"  Padding="3 -13" VerticalContentAlignment="Top" Background="Transparent" FontSize="40"  Content="♥">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation To="Red"
+                            Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
+                            Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
             </Button>
         </StackPanel>
     </Canvas>

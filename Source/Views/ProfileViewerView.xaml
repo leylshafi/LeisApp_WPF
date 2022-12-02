@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Source.Views" xmlns:usercontrols="clr-namespace:Source.Views.UserControls"
         mc:Ignorable="d"
-        Title="ProfileViewerView" Height="450" Width="800" Background="AliceBlue">
+        Title="ProfileViewerView" Height="450" Width="800" Background="AliceBlue"  Icon="/StaticFiles/img/twitterLogo.png"  WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
@@ -27,11 +27,11 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1">
-            <Image Source="{Binding BackgroundPath}" Stretch="Fill" Height="160" />
+            <Image Source="/StaticFiles/img/600x200.jpg" Stretch="Fill" Height="160" />
             <Canvas>
                 <Ellipse StrokeThickness=".3" Stroke="Black"  HorizontalAlignment="Left" Margin="5 -65 0 0" Height="90" Width="90">
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="{Binding ImagePath}" Stretch="UniformToFill" />
+                        <ImageBrush ImageSource="/StaticFiles/img/fakeProfile.png" Stretch="UniformToFill" />
                     </Ellipse.Fill>
                 </Ellipse>
 
