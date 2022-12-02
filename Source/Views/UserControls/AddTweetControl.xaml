@@ -5,7 +5,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Source.Views.UserControls" xmlns:viewmodels="clr-namespace:Source.ViewModels" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" d:DataContext="{d:DesignInstance Type=viewmodels:ProfileViewModel}"
              mc:Ignorable="d" 
-             
              Height="150" HorizontalAlignment="Stretch">
     <Canvas>
         <StackPanel Canvas.Left="20" Canvas.Top="20">
